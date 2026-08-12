@@ -64,7 +64,8 @@ h2.big{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.02em;font-weight:700;
 .rv{opacity:0;transform:translateY(34px)}
 .vision-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}
 @media(max-width:960px){.vision-grid{grid-template-columns:1fr}}
-.vis-card{background:#f6f9fb;border-radius:20px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.vis-card{background:#f6f9fb;border-radius:20px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden;max-width:560px;width:100%;justify-self:end}
+@media(max-width:960px){.vis-card{justify-self:center}}
 .vis-card svg{width:100%;height:auto;display:block}
 .about-cta{display:flex;justify-content:center;margin-top:22px}
 .co-logo{display:inline-flex;align-items:center;margin-right:16px;flex:none}
@@ -212,7 +213,6 @@ h2.big{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.02em;font-weight:700;
 .close-msg p{color:var(--mut);margin-top:10px}
 .close-msg .crow{justify-content:center;margin-top:26px}
 footer{padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);font-size:10px;letter-spacing:.26em}
-/* ================= MOBILE: horizontal swipe deck + vertical journey ================= */
 @media(max-width:768px){
  body{overflow:hidden}
  #root{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
@@ -268,6 +268,7 @@ footer{padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);
 var LINKS={email:"pranava.raghava.g@gmail.com",linkedin:"https://www.linkedin.com/in/pranava-raghava-g",github:"https://github.com/pranava-raghava",portfolio:"https://pranavaraghava.vercel.app",resume:"#"};
 var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var MOB=matchMedia("(max-width:768px)");
+var HAS_GSAP=!!window.gsap;
 var RKT='<svg viewBox="0 0 60 110" fill="none"><path d="M30 0 C44 22 46 48 44 66 L16 66 C14 48 16 22 30 0Z" fill="currentColor"/><path d="M16 60 L2 84 L18 78Z" fill="currentColor" opacity=".6"/><path d="M44 60 L58 84 L42 78Z" fill="currentColor" opacity=".6"/></svg>';
 var LOGO_Z='<svg viewBox="0 -4 320 88"><g fill="none" stroke="#14213d" stroke-width="6" stroke-linecap="round"><path d="M12 30 a28 28 0 0 1 56 0"/><path d="M20 33 a20 20 0 0 1 40 0"/><path d="M12 50 a28 28 0 0 0 56 0"/><path d="M20 47 a20 20 0 0 0 40 0"/></g><text x="92" y="50" font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-size="26" letter-spacing="6" fill="#14213d">ZETAACRAFT</text></svg>';
 var LOGO_S='<svg viewBox="0 0 64 64"><g fill="#111"><rect x="2" y="10" width="3" height="44"/><rect x="9" y="10" width="5" height="44"/><rect x="18" y="10" width="7" height="44"/><rect x="29" y="10" width="9" height="44"/><rect x="42" y="10" width="12" height="44"/></g></svg>';
@@ -285,21 +286,21 @@ var ABOUT_SVG='<svg viewBox="0 0 700 620" role="img" aria-label="Three disciplin
 '<text x="350" y="302" font-size="32" fill="#111827">PR</text>'+
 '</g></svg>';
 var VISION_SVG='<svg viewBox="0 0 700 760" role="img" aria-label="Vision nesting diagram">'+
-'<circle cx="350" cy="400" r="340" fill="#1178a8"/>'+
-'<circle cx="350" cy="450" r="290" fill="#2cb4ca"/>'+
-'<circle cx="350" cy="500" r="240" fill="#83cadd"/>'+
-'<circle cx="350" cy="550" r="190" fill="#a9dcec"/>'+
-'<circle cx="350" cy="600" r="140" fill="#cfeaf4"/>'+
-'<circle cx="350" cy="645" r="95" fill="#e9f5fa"/>'+
-'<circle cx="350" cy="680" r="60" fill="#f2fafd"/>'+
+'<circle class="vc" cx="350" cy="400" r="340" fill="#1178a8"/>'+
+'<circle class="vc" cx="350" cy="450" r="290" fill="#2cb4ca"/>'+
+'<circle class="vc" cx="350" cy="500" r="240" fill="#83cadd"/>'+
+'<circle class="vc" cx="350" cy="550" r="190" fill="#a9dcec"/>'+
+'<circle class="vc" cx="350" cy="600" r="140" fill="#cfeaf4"/>'+
+'<circle class="vc" cx="350" cy="645" r="95" fill="#e9f5fa"/>'+
+'<circle class="vc" cx="350" cy="680" r="60" fill="#f2fafd"/>'+
 '<g font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-weight="700" fill="#3d3d3d" text-anchor="middle">'+
-'<text x="350" y="105" font-size="27">Company Vision</text>'+
-'<text x="350" y="212" font-size="25" fill="#4a4a4a">Business Strategy</text>'+
-'<text x="350" y="316" font-size="23" fill="#4a4a4a">Product Vision</text>'+
-'<text x="350" y="416" font-size="23" fill="#4a4a4a">Product Strategy</text>'+
-'<text x="350" y="508" font-size="21" fill="#4a4a4a">Release Plan</text>'+
-'<text x="350" y="580" font-size="18" fill="#4a4a4a">Sprint</text><text x="350" y="602" font-size="18" fill="#4a4a4a">Plan</text>'+
-'<text x="350" y="668" font-size="16" fill="#4a4a4a">Daily</text><text x="350" y="690" font-size="16" fill="#4a4a4a">Plan</text>'+
+'<text class="vt" x="350" y="105" font-size="27">Company Vision</text>'+
+'<text class="vt" x="350" y="212" font-size="25" fill="#4a4a4a">Business Strategy</text>'+
+'<text class="vt" x="350" y="316" font-size="23" fill="#4a4a4a">Product Vision</text>'+
+'<text class="vt" x="350" y="416" font-size="23" fill="#4a4a4a">Product Strategy</text>'+
+'<text class="vt" x="350" y="508" font-size="21" fill="#4a4a4a">Release Plan</text>'+
+'<text class="vt" x="350" y="580" font-size="18" fill="#4a4a4a">Sprint</text><text class="vt" x="350" y="602" font-size="18" fill="#4a4a4a">Plan</text>'+
+'<text class="vt" x="350" y="668" font-size="16" fill="#4a4a4a">Daily</text><text class="vt" x="350" y="690" font-size="16" fill="#4a4a4a">Plan</text>'+
 '</g></svg>';
 var STORY={
 zetaa:{id:"zetaa",co:"Zetaacraft",dates:"2024 — PRESENT",role:"AI Product Engineer / Full Stack Developer",floatHL:true,logo:LOGO_Z,
@@ -467,25 +468,31 @@ storyHTML("zetaa")+storyHTML("stackbox")+storyHTML("shopester")+
 /* ================= engine ================= */
 var cards=[].slice.call(document.querySelectorAll(".cardsec"));
 var opened=false,ready=false,settled=false;
-function applyStack(){if(MOB.matches){for(var j=0;j<cards.length;j++)cards[j].style.transform="";return;}
+function reveal(el){if(HAS_GSAP){gsap.to(el,{opacity:1,y:0,duration:.8,ease:"power3.out"});}else{el.style.opacity="1";el.style.transform="none";}}
+function applyStack(){
+ if(MOB.matches){
+  var r=$("#root");var idx=Math.round(r.scrollLeft/Math.max(1,r.clientWidth));
+  for(var j=0;j<cards.length;j++){cards[j].style.transform="";cards[j].style.pointerEvents=(j===idx)?"":"none";}
+  return;}
  var y=window.scrollY,vh=window.innerHeight;
  for(var i=0;i<cards.length;i++){var c=cards[i],d=y-c.offsetTop;
   if(d>0){var cp=clamp01(d/vh);
    c.style.transform="translateY("+d+"px)";
+   c.style.pointerEvents="none";
    var inn=c.querySelector(".iscroll");
    if(inn){if(cp>=.999&&!c.dataset.rst){c.dataset.rst="1";inn.scrollTop=0;}
     else if(cp<.9&&c.dataset.rst){delete c.dataset.rst;}}
-  }else{c.style.transform="";}}}
+  }else{c.style.transform="";c.style.pointerEvents="";}}}
 function updateBar(){var el=$("#pbar");
  if(MOB.matches){var r=$("#root");var m=Math.max(1,r.scrollWidth-r.clientWidth);el.style.transform="scaleX("+(r.scrollLeft/m)+")";}
  else{var h=document.documentElement;el.style.transform="scaleX("+(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight))+")";}}
 addEventListener("scroll",function(){updateBar();applyStack();},{passive:true});
-$("#root").addEventListener("scroll",function(){updateBar();},{passive:true});
+$("#root").addEventListener("scroll",function(){updateBar();applyStack();},{passive:true});
 addEventListener("resize",applyStack);
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener("click",function(e){
  var t=document.querySelector(a.getAttribute("href"));
  if(t){e.preventDefault();t.scrollIntoView({behavior:RM?"auto":"smooth",block:"start",inline:"start"});}});});
-/* WHEEL ROUTER (desktop only) — strict LIFO + opening lock */
+/* WHEEL ROUTER (desktop only) */
 addEventListener("wheel",function(e){
  if(!opened||MOB.matches)return;
  if(e.target.closest("#modal"))return;
@@ -510,25 +517,34 @@ addEventListener("wheel",function(e){
  }
 },{capture:true,passive:false});
 
-/* ============ per-card drivers ============ */
+/* ============ per-card drivers (crash-proof: try/catch + GSAP guards) ============ */
 function runCount(el){var raw=el.getAttribute("data-count"),m=raw.match(/[\d.]+/);if(!m)return;
+ if(!HAS_GSAP){el.innerHTML=raw;return;}
  var end=parseFloat(m[0]),pre=raw.slice(0,raw.indexOf(m[0])),suf=raw.slice(raw.indexOf(m[0])+m[0].length),o={v:0};
  gsap.to(o,{v:end,duration:1.6,ease:"power2.out",onUpdate:function(){el.innerHTML=pre+Math.round(o.v)+suf}});}
 document.querySelectorAll(".cardsec").forEach(function(card){
+ try{
  var inner=card.querySelector(".iscroll");if(!inner)return;
  function visible(){if(MOB.matches)return true;return (card.offsetTop-window.scrollY)<window.innerHeight*0.92;}
  var rvs=[].slice.call(card.querySelectorAll(".rv")),cts=[].slice.call(card.querySelectorAll("[data-count]"));
  var badgeDone=false,badgeRow=card.querySelector(".badge-row");
  function check(){if(!visible())return;
   var ir=inner.getBoundingClientRect();
-  rvs.forEach(function(el){if(!el.dataset.done&&el.getBoundingClientRect().top<ir.bottom-40){el.dataset.done="1";
-    gsap.to(el,{opacity:1,y:0,duration:.8,ease:"power3.out"});}});
+  rvs.forEach(function(el){if(!el.dataset.done&&el.getBoundingClientRect().top<ir.bottom-40){el.dataset.done="1";reveal(el);}});
   cts.forEach(function(el){if(!el.dataset.done&&el.getBoundingClientRect().top<ir.bottom-40){el.dataset.done="1";runCount(el);}});
   if(badgeRow&&!badgeDone&&badgeRow.getBoundingClientRect().top<ir.bottom-60){badgeDone=true;
-    gsap.from("#bpillFull",{rotationX:-90,opacity:0,duration:.7,ease:"back.out(2)"});}}
+   if(HAS_GSAP)gsap.from("#bpillFull",{rotationX:-90,opacity:0,duration:.7,ease:"back.out(2)"});}}
  inner.addEventListener("scroll",check,{passive:true});
  addEventListener("scroll",function(){if(visible())check();},{passive:true});
  check();
+ if(card.id==="vision"&&HAS_GSAP){
+  var vdone=false;
+  var vanim=function(){if(vdone||!visible())return;vdone=true;
+   gsap.from(card.querySelectorAll(".vc"),{scale:.7,opacity:0,duration:.9,stagger:.08,ease:"power2.out",transformOrigin:"50% 50%"});
+   gsap.from(card.querySelectorAll(".vt"),{opacity:0,y:12,duration:.7,stagger:.05,delay:.35,ease:"power2.out"});};
+  inner.addEventListener("scroll",vanim,{passive:true});
+  addEventListener("scroll",vanim,{passive:true});
+ }
  if(card.id==="stackbox"){
   var vis=document.getElementById("stackVis"),mk=document.getElementById("jmarker"),jf=document.getElementById("jfill"),
   stgs=[].slice.call(card.querySelectorAll(".jstage")),fr=[.05,.35,.65,.9];
@@ -564,11 +580,12 @@ document.querySelectorAll(".cardsec").forEach(function(card){
   addEventListener("scroll",function(){if(visible())cupd();},{passive:true});
   cupd();
  }
+ }catch(err){/* one card failing can never break the rest */}
 });
 
 /* ================= splash ================= */
 var pen=$("#pen"),clip=$("#nameClip");
-if(!window.gsap){
+if(!HAS_GSAP){
  var sp=document.getElementById("splash");if(sp)sp.style.display="none";
  document.body.classList.remove("lock");opened=true;ready=true;settled=true;
 }else{
@@ -606,12 +623,15 @@ if(!RM)$("#splash").addEventListener("mousemove",function(e){var r=innerWidth/2,
 }
 /* accordions */
 document.addEventListener("click",function(e){var h=e.target.closest(".phead");if(!h)return;
- var row=h.closest(".prow"),plist=row.closest(".plist");
+ var row=h.closest(".prow");if(!row)return;
+ var cardSec=row.closest(".cardsec");
+ if(cardSec&&cardSec.style.pointerEvents==="none")return;
+ var plist=row.closest(".plist");
  var willOpen=!row.classList.contains("open");
  plist.querySelectorAll(".prow.open").forEach(function(o){if(o!==row)o.classList.remove("open");});
  row.classList.toggle("open",willOpen);});
 var fp=$("#foldPaper");
-if(fp){fp.addEventListener("mouseenter",function(){gsap.to("#foldPaper .f1",{scaleY:1,duration:.25});gsap.to("#foldPaper .f2",{scaleY:1,duration:.25,delay:.25});});
+if(fp&&HAS_GSAP){fp.addEventListener("mouseenter",function(){gsap.to("#foldPaper .f1",{scaleY:1,duration:.25});gsap.to("#foldPaper .f2",{scaleY:1,duration:.25,delay:.25});});
  fp.addEventListener("mouseleave",function(){gsap.to("#foldPaper .f1,#foldPaper .f2",{scaleY:0,duration:.3});});}
 if(!RM&&matchMedia("(pointer:fine)").matches){document.querySelectorAll(".magnetic").forEach(function(b){
  b.addEventListener("mousemove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.18)+"px,"+((e.clientY-r.top-r.height/2)*.3)+"px)";});
@@ -626,7 +646,7 @@ document.querySelectorAll(".cs").forEach(function(c){c.onclick=function(){var d=
  '<div class="crow"><a class="btn ghost" href="'+LINKS.github+'" target="_blank">GITHUB</a><a class="btn ghost" href="'+LINKS.portfolio+'" target="_blank">LIVE DEMO</a><a class="btn pri" href="'+LINKS.portfolio+'" target="_blank">FULL CASE STUDY</a></div><p class="flag"><b>*</b> Screenshots & links — attach real assets.</p>';
  $("#modal").classList.add("open");};});
 /* ambience */
-if(!RM&&matchMedia("(pointer:fine)").matches&&window.gsap){
+if(!RM&&matchMedia("(pointer:fine)").matches&&HAS_GSAP){
  var g=$("#glow"),mx=innerWidth/2,my=innerHeight/2,gx=mx,gy=my;
  addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;});
  (function loop(){gx+=(mx-gx)*.08;gy+=(my-gy)*.08;g.style.left=gx+"px";g.style.top=gy+"px";requestAnimationFrame(loop);})();
