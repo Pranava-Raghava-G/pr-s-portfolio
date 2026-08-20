@@ -151,7 +151,7 @@ h2.big{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.02em;font-weight:700;
 .stat.on .stat-bar{transform:scaleX(1)}
 
 .const{border-radius:24px;border:1px solid var(--line);background:radial-gradient(90% 90% at 50% 10%,#fff,color-mix(in srgb,var(--tint) 60%,#fff));min-height:300px;position:relative;overflow:hidden;padding:24px}
-.const .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;background:linear-gradient(135deg,var(--acc),var(--acc2));z-index:2}
+.const .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--f-mono);font-size:7px;letter-spacing:.02em;line-height:1.35;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));z-index:2;padding:8px}
 .clines{position:absolute;inset:0;width:100%;height:100%}
 .clines line{stroke:color-mix(in srgb,var(--acc) 45%,#fff);stroke-width:.4;stroke-dasharray:1;stroke-dashoffset:1}
 .const.on .clines line{stroke-dashoffset:0}
@@ -456,14 +456,14 @@ var STORY={
 
 var SKILLS=[
   ["PRODUCT",["Product Strategy","Product Discovery","Roadmapping","PRDs","Wireframing","Sprint Planning","Agile","Scrum","Stakeholder Management","Feature Prioritization"]],
-  ["AI",["Prompt Engineering","ChatGPT","Claude","Gemini","Cursor","Lovable","Perplexity","Local LLMs","Ollama","RAG","MCP","AI Agents"]],
-  ["ANALYTICS",["SQL","Power BI","Excel","Data Analysis","KPIs","A/B Testing"]]
+  ["AI PRODUCT DEVELOPMENT",["LLM applications","RAG","AI agents/workflows","prompt engineering","evaluation","rapid prototyping","AI-assisted development","local LLM deployment","MCP"]],
+  ["ANALYTICS",["SQL","Google Data Studio","Excel","Data Analysis","KPIs","A/B Testing"]]
 ];
 
 var METRICS=[
   ["4+","Products Built"],
   ["25+","Features Delivered"],
-  ["15%","Performance Improvement"],
+  ["15%","Product performance improvement"],
   ["35%","QA Efficiency Gain"],
   ["12+","Product Modules Shipped"]
 ];
@@ -608,23 +608,65 @@ function buildPDF(){
   function bold(s){doc.setFont("helvetica","bold");doc.setFontSize(s);doc.setTextColor(0,0,0);}
   function italic(s){doc.setFont("helvetica","italic");doc.setFontSize(s);doc.setTextColor(0,0,0);}
   function rule(w){doc.setDrawColor(0,0,0);doc.setLineWidth(w);doc.line(M,y,W-M,y);}
-  function section(t){y+=12;bold(9);doc.text(t.toUpperCase(),M,y);y+=5;rule(.7);y+=15;}
-  function textBlock(t,size,lh){normal(size);var lines=doc.splitTextToSize(t,cW);doc.text(lines,M,y);y+=lines.length*lh+4;}
-  function bullet(t){normal(7.8);var lines=doc.splitTextToSize(t,cW-10);doc.text("•",M+1,y);doc.text(lines,M+10,y);y+=lines.length*9.8+2;}
-  function roleHeader(co,role,when){bold(9.5);doc.text(co,M,y);normal(7.8);doc.text(when,W-M,y,{align:"right"});y+=11;italic(8.2);doc.text(role,M,y);y+=12;}
+
+  function section(t){
+    y+=10;
+    bold(9);
+    doc.text(t.toUpperCase(),M,y);
+    y+=4;
+    rule(.7);
+    y+=13;
+  }
+
+  function textBlock(t,size,lh){
+    normal(size);
+    var lines=doc.splitTextToSize(t,cW);
+    doc.text(lines,M,y);
+    y += lines.length*lh + 3;
+  }
+
+  function bullet(t){
+    normal(7.6);
+    var lines=doc.splitTextToSize(t,cW-10);
+    doc.text("•",M+1,y);
+    doc.text(lines,M+10,y);
+    y += lines.length*9.4 + 2;
+  }
+
+  function roleHeader(co,role,when){
+    bold(9.5);doc.text(co,M,y);
+    normal(7.6);doc.text(when,W-M,y,{align:"right"});
+    y += 10;
+    italic(8);doc.text(role,M,y);
+    y += 11;
+  }
+
   function project(name,desc,url){
     bold(8);
-    if(url){doc.textWithLink(name,M+10,y,{url:url});}else{doc.text(name,M+10,y);}
-    y+=10;
-    normal(7.6);
+    if(url){doc.textWithLink(name,M+10,y,{url:url});}
+    else{doc.text(name,M+10,y);}
+    y += 9;
+
+    normal(7.4);
     var lines=doc.splitTextToSize(desc,cW-10);
     doc.text(lines,M+10,y);
-    y+=lines.length*9.4+4;
+    y += lines.length*9 + 3;
   }
-  function skill(label,txt){bold(8);doc.text(label,M,y);normal(7.8);var lines=doc.splitTextToSize(txt,cW-70);doc.text(lines,M+70,y);y+=Math.max(lines.length*10,10)+4;}
+
+  function skill(label,txt){
+    bold(8);
+    var labelLines=doc.splitTextToSize(label,95);
+    doc.text(labelLines,M,y);
+
+    normal(7.6);
+    var lines=doc.splitTextToSize(txt,cW-105);
+    doc.text(lines,M+105,y);
+
+    y += Math.max(labelLines.length*9, lines.length*9.4, 10) + 3;
+  }
 
   bold(22);doc.text("PRANAVA RAGHAVA G",M,y);y+=16;
-  italic(10);doc.text("AI Product Manager",M,y);y+=13;
+  italic(10);doc.text("AI Product Manager",M,y);y+=12;
 
   normal(8);
   var cx=M;
@@ -641,33 +683,33 @@ function buildPDF(){
   addLink("linkedin.com/in/pranava-raghava",LINKS.linkedin,true);
   addLink("Portfolio",LINKS.portfolio,true);
   addLink("+91 8428638871","tel:"+LINKS.phone,false);
-  y+=12;
+  y+=11;
 
-  rule(1.2);y+=10;
+  rule(1.2);y+=8;
 
   section("Summary");
-  textBlock("AI Product Manager who works closely with engineers to turn product ideas into AI-powered products, with a strong interest in hands-on Product Engineering. Across Zetaacraft, Stackbox and Shopester, I have built AI-first web products, owned supply-chain product lifecycles, and founded the analytics function. I take products from requirement gathering to shipped, measured outcomes by pairing business understanding with an engineering mindset.",8,11);
+  textBlock("AI Product Manager with 4+ years of experience across product management, analytics and hands-on product development. Builds 0 to 1 AI products using AI-assisted development, while owning discovery, PRDs, delivery and outcomes. Experienced across supply-chain products, analytics and AI-powered web applications.",8,10.5);
 
   section("Core Skills");
   skill("Product","Discovery, PRDs, roadmapping, sprint planning, stakeholder management, QA and release ownership.");
-  skill("AI","Prompt engineering, AI-assisted development, Cursor, Claude, ChatGPT, Local LLMs, Ollama, RAG, MCP, rapid prototyping.");
-  skill("Analytics","SQL, Power BI, market-basket analysis, KPIs, dashboard design, data storytelling.");
+  skill("AI Product Development","LLM applications, RAG, AI agents/workflows, prompt engineering, evaluation, rapid prototyping, AI-assisted development, local LLM deployment, MCP.");
+  skill("Analytics","SQL, Google Data Studio, market-basket analysis, KPIs, dashboard design, data storytelling.");
 
   section("Experience & Key Projects");
 
   roleHeader("Zetaacraft","AI Product Manager","June 2026 - Present");
   bullet("Built products from 0 to 1 using AI copilots, owning product strategy, delivery and front-end execution.");
-  project("Zetaacraft.com","Designed flagship studio site with services and enquiry funnel as a fast AI-assisted product. Improved enquiry conversion significantly.","https://zetaacraft.com/");
+  project("Zetaacraft.com","Designed flagship studio site with services and enquiry funnel as a fast AI-assisted product. Increased enquiry conversion by 10% by redesigning service discovery and the enquiry funnel.","https://zetaacraft.com/");
   project("Srisarojini ERP","Built modular ERP with unified masters and live dashboards. Cut manual reconciliation and established one source of truth.","https://srisarojini.com/");
-  project("Taskya","Built AI task workspace bringing tasks and context into one place. Planning that took a meeting now takes a prompt.","https://taskya-amber.vercel.app/");
-  y+=4;
+  project("Taskya","Built an AI workspace that converts meeting context and tasks into structured execution plans, reducing manual planning effort.","https://taskya-amber.vercel.app/");
+  y+=3;
 
   roleHeader("Stackbox","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
   bullet("Owned supply-chain and yard-management modules end-to-end, from PRDs to QA and production release.");
-  project("WMS - Product Quality & Inbound","Owned Inbound module and managed feature development from requirements through QA. Shipped on schedule with zero critical defects.",null);
-  project("Yard Management System","Managed backlog and sprint planning based on business priorities. Coordinated QA resources across releases to align with delivery.",null);
-  project("Independent YMS","Shaped standalone solution from concept to delivery. Managed priorities across multiple modules balancing customer needs and constraints.",null);
-  y+=4;
+  project("WMS - Product Quality & Inbound","Owned the Inbound module after analysing WMS gaps and production readiness issues. Translated warehouse user challenges into improvements, managed requirements, refinement, QA and release, and shipped practical features that improved operational reliability and adoption.",null);
+  project("Yard Management System","Took ownership of YMS from early launch, shaping the product with business, operations, engineering and QA. Managed backlog, prioritisation and sprint planning, coordinated releases and testing, and resolved trade-offs to keep delivery aligned with operational priorities.",null);
+  project("Independent YMS","Shaped an independent YMS from concept to delivery, enabling yard operations without WMS dependency. Translated operational needs into workflows, managed backlog and sprint planning across modules, and coordinated QA to balance customer needs, business priorities and timelines.",null);
+  y+=3;
 
   roleHeader("Shopester","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
   bullet("First analytics hire; built reporting cadence, dashboards and decision-support analytics from zero.");
@@ -675,7 +717,13 @@ function buildPDF(){
   project("Analytics Impact","Built automated dashboards for KPI tracking and campaign performance. Shifted culture from reactive reporting to actionable insights.",null);
 
   section("Key Impact Metrics");
-  var metrics=[["4+","Products Built"],["25+","Features Delivered"],["15%","Performance Improvement"],["35%","QA Efficiency Gain"],["12+","Product Modules Shipped"]];
+  var metrics=[
+    ["4+","Products Built"],
+    ["25+","Features Delivered"],
+    ["15%","Product performance improvement"],
+    ["35%","QA Efficiency Gain"],
+    ["12+","Product Modules Shipped"]
+  ];
   var colW=cW/5;
   metrics.forEach(function(m,i){
     var x=M+(i%5)*colW+(colW/2);
@@ -690,7 +738,7 @@ function buildPDF(){
 
 function resumePremiumHTML(){
   function sec(t){return '<div style="margin:28px 0 12px;font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:6px">'+t+'</div>';}
-  function skill(label,txt){return '<div style="display:flex;gap:18px;margin:8px 0"><div style="width:80px;font-weight:700;font-size:10.5px;color:#000">'+label+'</div><div style="flex:1;font-size:10.5px;line-height:1.6;color:#000">'+txt+'</div></div>';}
+  function skill(label,txt){return '<div style="display:flex;gap:18px;margin:8px 0"><div style="width:110px;font-weight:700;font-size:10.5px;color:#000">'+label+'</div><div style="flex:1;font-size:10.5px;line-height:1.6;color:#000">'+txt+'</div></div>';}
   function expHeader(co,role,when){return '<div style="margin-top:22px"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-size:13px;font-weight:700;color:#000">'+co+'</div><div style="font-size:9.5px;color:#000">'+when+'</div></div><div style="font-size:10.5px;font-style:italic;color:#000;margin-top:3px">'+role+'</div></div>';}
   function bullet(t){return '<div style="font-size:10.5px;line-height:1.65;color:#000;margin:7px 0 7px 12px">• '+t+'</div>';}
   function project(n,d,url){
@@ -711,26 +759,26 @@ function resumePremiumHTML(){
   h+='<div style="height:2px;background:#000;margin:18px 0 6px"></div>';
 
   h+=sec("Summary");
-  h+='<p style="font-size:10.5px;line-height:1.7;color:#000;margin:0">AI Product Manager who works closely with engineers to turn product ideas into AI-powered products, with a strong interest in hands-on Product Engineering. Across Zetaacraft, Stackbox and Shopester, I have built AI-first web products, owned supply-chain product lifecycles, and founded the analytics function. I take products from requirement gathering to shipped, measured outcomes by pairing business understanding with an engineering mindset.</p>';
+  h+='<p style="font-size:10.5px;line-height:1.7;color:#000;margin:0">AI Product Manager with 4+ years of experience across product management, analytics and hands-on product development. Builds 0→1 AI products using AI-assisted development, while owning discovery, PRDs, delivery and outcomes. Experienced across supply-chain products, analytics and AI-powered web applications.</p>';
 
   h+=sec("Core Skills");
   h+=skill("Product","Discovery, PRDs, roadmapping, sprint planning, stakeholder management, QA and release ownership.");
-  h+=skill("AI","Prompt engineering, AI-assisted development, Cursor, Claude, ChatGPT, Local LLMs, Ollama, RAG, MCP, rapid prototyping.");
-  h+=skill("Analytics","SQL, Power BI, market-basket analysis, KPIs, dashboard design, data storytelling.");
+  h+=skill("AI Product Development","LLM applications, RAG, AI agents/workflows, prompt engineering, evaluation, rapid prototyping, AI-assisted development, local LLM deployment, MCP.");
+  h+=skill("Analytics","SQL, Google Data Studio, market-basket analysis, KPIs, dashboard design, data storytelling.");
 
   h+=sec("Experience & Key Projects");
 
   h+=expHeader("Zetaacraft","AI Product Manager","June 2026 - Present");
   h+=bullet("Built products from 0 to 1 using AI copilots, owning product strategy, delivery and front-end execution.");
-  h+=project("Zetaacraft.com","Designed flagship studio site with services and enquiry funnel as a fast AI-assisted product. Improved enquiry conversion significantly.","https://zetaacraft.com/");
+  h+=project("Zetaacraft.com","Designed flagship studio site with services and enquiry funnel as a fast AI-assisted product. Increased enquiry conversion by 10% by redesigning service discovery and the enquiry funnel.","https://zetaacraft.com/");
   h+=project("Srisarojini ERP","Built modular ERP with unified masters and live dashboards. Cut manual reconciliation and established one source of truth.","https://srisarojini.com/");
-  h+=project("Taskya","Built AI task workspace bringing tasks and context into one place. Planning that took a meeting now takes a prompt.","https://taskya-amber.vercel.app/");
+  h+=project("Taskya","Built an AI workspace that converts meeting context and tasks into structured execution plans, reducing manual planning effort.","https://taskya-amber.vercel.app/");
 
   h+=expHeader("Stackbox","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
   h+=bullet("Owned supply-chain and yard-management modules end-to-end, from PRDs to QA and production release.");
-  h+=project("WMS - Product Quality & Inbound","Owned Inbound module and managed feature development from requirements through QA. Shipped on schedule with zero critical defects.",null);
-  h+=project("Yard Management System","Managed backlog and sprint planning based on business priorities. Coordinated QA resources across releases to align with delivery.",null);
-  h+=project("Independent YMS","Shaped standalone solution from concept to delivery. Managed priorities across multiple modules balancing customer needs and constraints.",null);
+  h+=project("WMS - Product Quality & Inbound","Owned the Inbound module after analysing WMS gaps and production readiness issues. Translated warehouse user challenges into improvements, managed requirements, refinement, QA and release, and shipped practical features that improved operational reliability and adoption.",null);
+  h+=project("Yard Management System","Took ownership of YMS from early launch, shaping the product with business, operations, engineering and QA. Managed backlog, prioritisation and sprint planning, coordinated releases and testing, and resolved trade-offs to keep delivery aligned with operational priorities.",null);
+  h+=project("Independent YMS","Shaped an independent YMS from concept to delivery, enabling yard operations without WMS dependency. Translated operational needs into workflows, managed backlog and sprint planning across modules, and coordinated QA to balance customer needs, business priorities and timelines.",null);
 
   h+=expHeader("Shopester","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
   h+=bullet("First analytics hire; built reporting cadence, dashboards and decision-support analytics from zero.");
@@ -738,7 +786,7 @@ function resumePremiumHTML(){
   h+=project("Analytics Impact","Built automated dashboards for KPI tracking and campaign performance. Shifted culture from reactive reporting to actionable insights.",null);
 
   h+=sec("Key Impact Metrics");
-  var metrics=["4+ Products Built","25+ Features Delivered","15% Performance Improvement","35% QA Efficiency Gain","12+ Product Modules Shipped"];
+  var metrics=["4+ Products Built","25+ Features Delivered","15% Product performance improvement","35% QA Efficiency Gain","12+ Product Modules Shipped"];
   h+='<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">';
   h+=metrics.map(function(m){return '<span style="font-size:9.5px;padding:7px 12px;border:1px solid #000;border-radius:99px;color:#000;font-weight:700;background:#fff">'+m+'</span>';}).join('');
   h+='</div></div>';
@@ -946,7 +994,7 @@ document.querySelectorAll(".cardsec").forEach(function(card){
     check();
 
     if(card.id==="mindset"){
-      var pl=card.querySelector("#philLine"),pf=card.querySelector("#philFill"),pnodes=[].slice.call(card.querySelectorAll(".lead-node")),ncs=card.querySelectorAll(".nc");
+      var pl=card.querySelector("#philLine"),pf=card.querySelector("#philFill"),pnodes=[].slice.call(card.querySelectorAll(".lead-node"));
       var lupd=function(){
         if(!pl)return;
         if(!visible()){pf.style.transform="scaleY(0)";pnodes.forEach(function(nd){nd.classList.remove("on");});return;}
@@ -1100,8 +1148,6 @@ function openEnvelope(){
   opened=true;
 
   if(!ready)finishWrite();
-
-  // Unlock immediately so the page can never trap the user.
   unlockSite(false);
 
   var eh=$("#envHint");
@@ -1126,7 +1172,6 @@ function openEnvelope(){
     hideSplash();
   }
 
-  // Absolute safety: splash must be gone within 3 seconds of opening.
   setTimeout(hideSplash,3000);
 }
 
@@ -1190,7 +1235,6 @@ if(!HAS_GSAP){
     }
   });
 
-  // Permanent fallbacks: never remain locked.
   setTimeout(function(){
     if(!opened)tryOpen();
   },6000);
