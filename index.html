@@ -460,8 +460,9 @@ if(inSheet&&sh){var aT=sh.scrollTop<=0,aB=sh.scrollTop+sh.clientHeight>=sh.scrol
 else{e.preventDefault();}
 return;
 }
-if(!opened||MOB.matches)return;
-if(!settled||Date.now()<settleAt){e.preventDefault();e.stopPropagation();return;}
+if(!opened){e.preventDefault();tryOpen();return;}
+if(MOB.matches)return;
+if(Date.now()<settleAt){e.preventDefault();e.stopPropagation();return;}
 var y=window.scrollY||0,ai=0;for(var i=0;i<cards.length;i++){if(cards[i].offsetTop<=y+2)ai=i;}var card=cards[ai];if(!card)return;var inner=card.querySelector(".iscroll");if(!inner)return;var d=e.deltaY;if(e.deltaMode===1)d*=16;e.preventDefault();e.stopPropagation();var top=card.offsetTop,inTransition=y>top+1,atTop=inner.scrollTop<=0,atBottom=inner.scrollTop+inner.clientHeight>=inner.scrollHeight-1;
 var isLast=(ai===cards.length-1);
 if(d>0){if(!inTransition&&!atBottom){inner.scrollTop=Math.min(inner.scrollHeight,inner.scrollTop+d);}else{if(isLast&&atBottom){return;}var n=cards[ai+1],ny=y+d;if(n&&y<n.offsetTop&&ny>=n.offsetTop)ny=n.offsetTop;window.scrollTo(0,Math.max(0,ny));}}else{if(inTransition){var ny2=y+d;if(ny2<top)ny2=top;window.scrollTo(0,Math.max(0,ny2));}else if(!atTop){inner.scrollTop=Math.max(0,inner.scrollTop+d);}else{var p=cards[ai-1],ny3=y+d;if(p&&ny3<p.offsetTop+1)ny3=p.offsetTop;window.scrollTo(0,Math.max(0,ny3));}}
@@ -555,4 +556,8 @@ addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;});
 var cv=$("#dots"),cx=cv.getContext("2d"),W,H,P=[];
 var rs=function(){W=cv.width=innerWidth;H=cv.height=innerHeight;};rs();addEventListener("resize",rs);
 for(var i=0;i<55;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.4,s:Math.random()*.35+.08,c:Math.random()>.5?"99,102,241":"34,211,238"});}
-(function draw(){cx.clearRect(0,0,W,H);P.forEach(function(p){p.y-=p.s;if(p.y
+(function draw(){cx.clearRect(0,0,W,H);P.forEach(function(p){p.y-=p.s;if(p.y<-4)p.y=H+4;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fillStyle="rgba("+p.c+",.35)";cx.fill();});requestAnimationFrame(draw);})();
+}else{var gEl=$("#glow");if(gEl)gEl.style.display="none";var dEl=$("#dots");if(dEl)dEl.style.display="none";}
+</script>
+</body>
+</html>
