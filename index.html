@@ -232,6 +232,14 @@ footer{padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);
 .stat-bar{transition:transform 1s cubic-bezier(.2,.8,.2,1) .1s}
 .clines line{transition:stroke-dashoffset 1.2s ease .2s}
 .vpath-svg .vn{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+
+/* FIX: Prevent flickering on closing card */
+#closing .rv{
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 @media print{.no-print{display:none!important}body *{visibility:hidden}#mbody,#mbody *{visibility:visible}#modal{display:block;background:#fff}#modal .sheet{box-shadow:none;max-height:none;overflow:visible;width:100%;padding:0;border-radius:0}#mbody{position:absolute;left:0;top:0;width:100%}}
 @media(max-width:768px){body{overflow:hidden}#root{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;touch-action:pan-x pan-y}#root::-webkit-scrollbar{display:none}.cardsec{flex:0 0 100%;margin:0;border-radius:0;height:100%;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:none}.sec{padding:56px 0 96px}.hero-grid{grid-template-columns:1fr;gap:18px;padding:16px 0}.cover-name{font-size:clamp(1.4rem,7vw,2.2rem)}.env{width:min(92vw,420px)}.pen{width:84px;height:140px;margin-left:-42px;margin-top:-118px}.jcard{padding:30px 18px}.jtrack{height:400px}.jline{left:26px;right:auto;top:12px;bottom:12px;width:2px;height:auto}.jfill{left:26px;right:auto;top:12px;width:2px;height:calc(100% - 24px);transform:scaleY(0);transform-origin:50% 0}.jstage{left:0;right:0;top:var(--x);transform:none;display:flex;align-items:center;gap:14px;text-align:left}.jdot{margin:0;flex:none}.jlbl{margin:0;white-space:normal}.jmarker{left:26px;top:12px}.mini-env{width:min(86vw,420px)}.vision-grid,.mind-grid{grid-template-columns:1fr}}
 </style>
@@ -390,7 +398,6 @@ function buildPDF(){
   italic(11);doc.text("Product Manager | AI & 0 to 1 Products",W/2,y,{align:"center"});y+=14;
   normal(9);
   
-  // Center-aligned contact details
   var contacts = [
       {label: "raghavagodugunuri@gmail.com", url: "mailto:raghavagodugunuri@gmail.com"},
       {label: "+91 8428638871", url: "tel:+918428638871"},
