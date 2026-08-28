@@ -14,7 +14,7 @@
 <style>
 :root{--ink:#111827;--ink2:#374151;--mut:#6b7280;--line:rgba(17,24,39,.12);--acc:#0f9488;--acc2:#2dd4bf;--tint:#e4f2ee;--bar1:#6366f1;--bar2:#22d3ee;--f-body:'Satoshi',ui-sans-serif,system-ui,sans-serif;--f-disp:'General Sans','Satoshi',sans-serif;--f-script:'Great Vibes',cursive;--f-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
 [data-theme="teal"]{--acc:#0f9488;--acc2:#2dd4bf;--tint:#e7f3f0;--hb1:#0d9488;--hb2:#5eead4}
-[data-theme="green"]{--acc:#16a34a;--acc2:#4ade80;--tint:#edf6e9;--hb1:#16a34a;--hb2:#86efac}
+[data-theme="green"]{--acc:#16a34a;--acc2:#4ade80;--tint:#edf6e9;--hb1:#16a34a;--hb2:#86efac}a
 [data-theme="amber"]{--acc:#b45309;--acc2:#d97706;--tint:#f6eedf;--hb1:#d97706;--hb2:#ecd3ab}
 [data-theme="crimson"]{--acc:#b91c1c;--acc2:#ef4444;--tint:#f8eceb;--hb1:#dc2626;--hb2:#f2b3ac}
 [data-theme="violet"]{--acc:#6366f1;--acc2:#8b5cf6;--tint:#edeafc;--hb1:#7c3aed;--hb2:#a5b4fc}
@@ -125,7 +125,7 @@ h2.big{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.02em;font-weight:700;
 .blk{margin-top:44px}.blk>.mono{color:var(--acc);margin-bottom:18px}
 .list{list-style:none;display:grid;gap:12px}
 .list li{padding-left:26px;position:relative;color:var(--ink2);line-height:1.85}
-.list li::before{content:"→";position:absolute;left:0;color:var(--acc)}
+.list li::before{content:"\2192";position:absolute;left:0;color:var(--acc)}
 .kpi .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--ink)}
 .kpi p{color:var(--mut);font-size:.9rem;margin-top:6px}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
@@ -218,19 +218,7 @@ h2.big{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.02em;font-weight:700;
 #mclose{position:sticky;top:14px;margin-left:auto;margin-bottom:-44px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);cursor:pointer;z-index:6;display:grid;place-items:center;font-size:16px;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.08)}
 #modal h3{font-size:1.7rem;margin-bottom:6px}
 #modal .blk{margin-top:26px}
-.close-vis{height:240vh;position:relative}
-.close-pin{position:relative;height:100vh;display:grid;place-items:center;overflow:hidden}
-.close-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--acc);animation:blink 2.4s ease-in-out infinite;z-index:8;white-space:nowrap}
-.close-hint.off{display:none}
-.mini-env{position:relative;width:min(64vw,430px);aspect-ratio:980/700}
-.mini-env>div{position:absolute;inset:0;border-radius:18px}
-.me-in{background:linear-gradient(180deg,#f4f0e8,#d5d0c8)}
-.me-pocket{background:linear-gradient(180deg,#b3afa8,#9b978f);clip-path:polygon(0 20%,50% 58%,100% 20%,100% 100%,0 100%);z-index:2}
-.me-letter{left:8%;right:8%;top:10%;bottom:14%;background:#fbf9f4;border-radius:8px;z-index:1}
-.me-flap-open{position:absolute;left:0;right:0;top:-49%;height:50%;border-radius:18px 18px 0 0;background:linear-gradient(180deg,#efece6,#e3dfd8);clip-path:polygon(50% 0,100% 100%,0 100%);transform-origin:50% 100%;z-index:3;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.me-flap-closed{position:absolute;inset:0;border-radius:18px;background:linear-gradient(180deg,#f7f4ef,#e3dfd8);clip-path:polygon(0 0,100% 0,50% 50%);transform-origin:50% 0;transform:scaleY(0);z-index:4;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.me-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0);width:60px;height:60px;border-radius:18px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:16px;background:linear-gradient(135deg,#6366f1,#22d3ee);z-index:6;opacity:0}
-.close-msg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:7;text-align:center;width:min(90vw,760px);opacity:0}
+.close-msg{display:grid;place-items:center;height:100%;text-align:center;padding:40px 20px}
 .close-msg .script{font-size:clamp(1.8rem,4vw,3rem);color:#141c33}
 .close-msg p{color:var(--mut);margin-top:10px}
 .close-msg .crow{justify-content:center;margin-top:26px}
@@ -249,22 +237,22 @@ footer{padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);
 </style>
 </head>
 <body class="lock">
-<div id="pbar"></div><canvas id="dots"></canvas><div id="glow"></div><div id="mhint">SWIPE LEFT FOR MORE →</div><div id="rtoast"></div>
+<div id="pbar"></div><canvas id="dots"></canvas><div id="glow"></div><div id="mhint">SWIPE LEFT FOR MORE &rarr;</div><div id="rtoast"></div>
 <div id="splash"><div class="hero-grid">
 <div class="hleft"><h1 class="cover-name">Mr. Pranava Raghava G</h1>
 <div class="cover-roles">AI Product Manager &bull; Product Owner</div>
 <div class="cover-line"></div>
 <p class="cover-blurb">AI Product Manager & Product Owner who works closely with engineers to turn product ideas into AI-powered products, with a strong interest in hands-on Product Engineering.</p></div>
 <div class="hright"><div class="env" id="env"><div class="env-inner"></div>
-<div class="letter" id="letter"><span class="mono">THE CAREER LETTER — 2026</span></div>
+<div class="letter" id="letter"><span class="mono">THE CAREER LETTER &mdash; 2026</span></div>
 <div class="env-pocket"></div><div class="env-flap" id="flap"></div><div id="seal">PR</div>
 <div class="name-zone"><div class="name-clip" id="nameClip"><h1 id="name" class="script">Mr. Pranava Raghava G</h1></div><div class="name-line" id="nameLine"></div></div>
 <div class="pen" id="pen"><svg viewBox="0 0 120 200" width="120" height="200"><g transform="rotate(32 60 178)"><path d="M60 182 L51 158 Q60 149 69 158 Z" fill="#d9a441"/><path d="M60 178 L60 160" stroke="#7a5210" stroke-width="1.6"/><circle cx="60" cy="161" r="1.8" fill="#7a5210"/><rect x="51" y="64" width="18" height="92" rx="9" fill="#101418"/><rect x="51" y="76" width="18" height="7" fill="#d9a441"/><rect x="51" y="140" width="18" height="7" fill="#d9a441"/><rect x="52" y="40" width="16" height="26" rx="8" fill="#101418"/><rect x="52" y="60" width="16" height="5" fill="#d9a441"/><path d="M55 70 L55 150" stroke="#ffffff" stroke-opacity=".25" stroke-width="2.4" stroke-linecap="round"/></g></svg></div></div>
-<div class="env-hint mono" id="envHint">CLICK, SCROLL OR PRESS ENTER ↓</div></div>
+<div class="env-hint mono" id="envHint">CLICK, SCROLL OR PRESS ENTER &darr;</div></div>
 </div></div>
-<button class="skip-intro" id="skipIntro">SKIP INTRO →</button>
+<button class="skip-intro" id="skipIntro">SKIP INTRO &rarr;</button>
 <main id="root"></main>
-<div id="modal"><div class="sheet"><button id="mclose" aria-label="Close">✕</button><div id="mbody"></div></div></div>
+<div id="modal"><div class="sheet"><button id="mclose" aria-label="Close">&times;</button><div id="mbody"></div></div></div>
 <script>
 "use strict";
 var LINKS={email:"raghavagodugunuri@gmail.com",phone:"+918428638871",phoneDisplay:"+91 8428638871",linkedin:"https://www.linkedin.com/in/pranava-raghava/",portfolio:"https://pranava-raghava-g.github.io/pr-s-portfolio/",resume:"#"};
@@ -273,7 +261,7 @@ var MOB=matchMedia("(max-width:768px)");
 var HAS_GSAP=!!window.gsap;
 var ICON_MAIL='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>';
 var ICON_PHONE='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
-var SEALED_ENV='<svg viewBox="0 0 640 440" fill="none"><rect x="10" y="10" width="620" height="420" rx="26" fill="#ffffff" stroke="#111827" stroke-width="6"/><path d="M14 26 L320 250 L626 26" stroke="#111827" stroke-width="6"/><path d="M14 428 L250 260 M626 428 L390 260" stroke="#111827" stroke-width="4" opacity=".5"/><circle cx="320" cy="252" r="52" fill="#0f9488"/><circle cx="320" cy="252" r="52" stroke="#0b6b62" stroke-width="4"/><text x="320" y="266" text-anchor="middle" font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-size="40" font-weight="700" fill="#ffffff">PR</text></svg>';
+var SEALED_ENV='<svg viewBox="0 0 640 440" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="620" height="420" rx="26" fill="#ffffff" stroke="#111827" stroke-width="6"/><path d="M14 26 L320 250 L626 26" stroke="#111827" stroke-width="6"/><path d="M14 428 L250 260 M626 428 L390 260" stroke="#111827" stroke-width="4" opacity=".5"/><circle cx="320" cy="252" r="52" fill="#0f9488"/><circle cx="320" cy="252" r="52" stroke="#0b6b62" stroke-width="4"/><text x="320" y="266" text-anchor="middle" font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-size="40" font-weight="700" fill="#ffffff">PR</text></svg>';
 var RKT='<svg viewBox="0 0 60 110" fill="none"><path d="M30 0 C44 22 46 48 44 66 L16 66 C14 48 16 22 30 0Z" fill="currentColor"/><path d="M16 60 L2 84 L18 78Z" fill="currentColor" opacity=".6"/><path d="M44 60 L58 84 L42 78Z" fill="currentColor" opacity=".6"/></svg>';
 var LOGO_Z='<svg viewBox="0 -4 320 88"><g fill="none" stroke="#14213d" stroke-width="6" stroke-linecap="round"><path d="M12 30 a28 28 0 0 1 56 0"/><path d="M20 33 a20 20 0 0 1 40 0"/><path d="M12 50 a28 28 0 0 0 56 0"/><path d="M20 47 a20 20 0 0 0 40 0"/></g><text x="92" y="50" font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-size="26" letter-spacing="6" fill="#14213d">ZETAACRAFT</text></svg>';
 var LOGO_S='<svg viewBox="0 0 64 64"><g fill="#111"><rect x="2" y="10" width="3" height="44"/><rect x="9" y="10" width="5" height="44"/><rect x="18" y="10" width="7" height="44"/><rect x="29" y="10" width="9" height="44"/><rect x="42" y="10" width="12" height="44"/></g></svg>';
@@ -283,168 +271,296 @@ var ABOUT_SVG='<svg viewBox="0 0 700 620" role="img" aria-label="Three disciplin
 var NESTED_SVG='<svg viewBox="0 0 700 760" role="img" aria-label="Vision nesting diagram"><circle class="nc" cx="350" cy="400" r="340" fill="#1178a8"/><circle class="nc" cx="350" cy="450" r="290" fill="#2cb4ca"/><circle class="nc" cx="350" cy="500" r="240" fill="#83cadd"/><circle class="nc" cx="350" cy="550" r="190" fill="#a9dcec"/><circle class="nc" cx="350" cy="600" r="140" fill="#cfeaf4"/><circle class="nc" cx="350" cy="645" r="95" fill="#e9f5fa"/><circle class="nc" cx="350" cy="680" r="60" fill="#f2fafd"/><g font-family="Satoshi,ui-sans-serif,system-ui,sans-serif" font-weight="700" fill="#3d3d3d" text-anchor="middle"><text x="350" y="105" font-size="27">Company Vision</text><text x="350" y="212" font-size="25" fill="#4a4a4a">Business Strategy</text><text x="350" y="316" font-size="23" fill="#4a4a4a">Product Vision</text><text x="350" y="416" font-size="23" fill="#4a4a4a">Product Strategy</text><text x="350" y="508" font-size="21" fill="#4a4a4a">Release Plan</text><text x="350" y="580" font-size="18" fill="#4a4a4a">Sprint</text><text x="350" y="602" font-size="18" fill="#4a4a4a">Plan</text><text x="350" y="668" font-size="16" fill="#4a4a4a">Daily</text><text x="350" y="690" font-size="16" fill="#4a4a4a">Plan</text></g></svg>';
 var VPATH_SVG='<svg class="vpath-svg" viewBox="0 0 320 520"><line id="vline" x1="60" y1="50" x2="60" y2="470" stroke="#22d3ee" stroke-width="3" stroke-dasharray="420" stroke-dashoffset="420"/><g class="vn"><circle cx="60" cy="60" r="22" fill="#141c2b" stroke="#22d3ee" stroke-width="2"/><text x="60" y="66" text-anchor="middle" font-size="16" fill="#fff" font-weight="700">1</text><text x="100" y="66" font-size="15" fill="#c7c9f4" font-weight="600">Build with AI</text></g><g class="vn"><circle cx="60" cy="190" r="22" fill="#141c2b" stroke="#22d3ee" stroke-width="2"/><text x="60" y="196" text-anchor="middle" font-size="16" fill="#fff" font-weight="700">2</text><text x="100" y="196" font-size="15" fill="#c7c9f4" font-weight="600">Solve real problems</text></g><g class="vn"><circle cx="60" cy="320" r="22" fill="#141c2b" stroke="#22d3ee" stroke-width="2"/><text x="60" y="326" text-anchor="middle" font-size="16" fill="#fff" font-weight="700">3</text><text x="100" y="326" font-size="15" fill="#c7c9f4" font-weight="600">Build end-to-end</text></g><g class="vn"><circle cx="60" cy="450" r="22" fill="#141c2b" stroke="#22d3ee" stroke-width="2"/><text x="60" y="456" text-anchor="middle" font-size="16" fill="#fff" font-weight="700">4</text><text x="100" y="456" font-size="15" fill="#c7c9f4" font-weight="600">Create impact</text></g></svg>';
 var STORY={
-zetaa:{id:"zetaa",co:"Zetaacraft",dates:"JUNE 2026 — PRESENT",role:"AI Product Manager",floatHL:true,logo:LOGO_Z,
-brief:"Built Zetaacraft and its products from 0→1, owning product strategy, design, development, and product management while using AI to accelerate the entire build-and-iterate workflow.",
+zetaa:{id:"zetaa",co:"Zetaacraft",dates:"JUNE 2026 \u2014 PRESENT",role:"AI Product Manager",floatHL:true,logo:LOGO_Z,
+brief:"Built Zetaacraft and its products from 0 to 1, owning product strategy, design, development, and product management while using AI to accelerate the entire build-and-iterate workflow.",
 ai:["ChatGPT","Claude","Gemini","Cursor","Lovable","Perplexity","Local LLMs","Ollama"],
 contrib:["Took products from raw idea to production release, owning scope, architecture and delivery.","Compressed build cycles by orchestrating AI copilots across design, code and QA.","Designed scalable, modular front-end and data architectures built to extend.","Ran rapid prototyping loops to pressure-test concepts before committing engineering effort.","Validated ideas with stakeholders and real users before writing production code.","Mentored college students through project scoping, execution and demo readiness."],
-impact:[["3x","×","Faster MVP delivery"],["90%","%","Less manual dev effort"],["2x","×","Faster product launches"],["100","%","AI-first engineering workflow"]],
+impact:[["3x","\u00d7","Faster MVP delivery"],["90%","%","Less manual dev effort"],["2x","\u00d7","Faster product launches"],["100","%","AI-first engineering workflow"]],
 lessons:["AI accelerates output, but product judgement is still the bottleneck worth protecting.","Prototypes turn assumptions into clarity faster than documents.","Architecture decisions made in week one determine velocity product delivery."],
 projects:[
 {n:"Zetaacraft",url:"https://zetaacraft.com/",feat:1,p:"Scattered brand presence and no clear story or enquiry funnel led to lost opportunities.",s:"Designed and built a fast, AI-assisted studio site combining services, case studies, and enquiries in one modular product.",o:"Created a cohesive brand experience that clearly communicates capabilities and guides visitors toward enquiries.",v:"The site became a live showcase of the studio's capabilities and a direct contributor to its sales pipeline."},
-{n:"Srisarojini ERP",url:"https://srisarojini.com/",p:"Operations relied on scattered spreadsheets, creating reconciliation gaps, manual effort, and frequent errors.",s:"Built a modular ERP with unified masters, role-based access, and live dashboards across departments.",o:"Eliminated manual reconciliation and gave leadership same-day visibility into operations.",v:"Created a single source of truth across inventory, sales, and finance—reducing errors and administrative overhead."},
+{n:"Srisarojini ERP",url:"https://srisarojini.com/",p:"Operations relied on scattered spreadsheets, creating reconciliation gaps, manual effort, and frequent errors.",s:"Built a modular ERP with unified masters, role-based access, and live dashboards across departments.",o:"Eliminated manual reconciliation and gave leadership same-day visibility into operations.",v:"Created a single source of truth across inventory, sales, and finance\u2014reducing errors and administrative overhead."},
 {n:"Taskya",url:"https://taskya-amber.vercel.app/",p:"Tasks and updates were scattered across conversations and checklists, making teams lose context and waste time coordinating.",s:"Built task platform that unifies tasks, priorities, backlogs, and team context in one place.",o:"Turned planning into a simple prompt-and-review workflow, reducing coordination overhead and improving execution.",v:"Proved the viability of AI-assisted workflow management for solo professionals and small teams."}]},
-stackbox:{id:"stackbox",co:"Stackbox",dates:"FEB 2023 — MAY 2026",role:"Product Analyst → Associate Product Manager",vertHL:true,logo:LOGO_S,
+stackbox:{id:"stackbox",co:"Stackbox",dates:"FEB 2023 \u2014 MAY 2026",role:"Product Analyst to Associate Product Manager",vertHL:true,logo:LOGO_S,
 brief:"Owned the complete product lifecycle for Yard-management modules: requirement gathering, product analysis, feature design, documentation, sprint planning, QA, testing, deployment, continuous improvement and AI-assisted front-end development.",
 ai:["Product Requirement Documents","Feature Prioritization","Sprint Planning","Backlog Management","Stakeholder Management","QA Leadership","Cross-functional Collaboration","Interactive Wireframes","Prototype Validation","AI-assisted Development","Employee Training","Documentation"],
-contrib:["Took features from staging to production, ensuring smooth and predictable releases","Improved product performance by ~15% through targeted flow improvements and better instrumentation","Increased QA efficiency by 30–40% by improving test coverage and streamlining defect tracking.","Reduced production defects through stronger pre-release regression testing.","Owned features end-to-end — from discovery and PRDs to design, development, QA, and release.","Wrote clear PRDs that enabled engineers to start building with minimal back-and-forth","Contributed directly to frontend development, helping turn product requirements into working experiences.","Introduced AI-assisted workflows into documentation, analysis and prototyping.","Partnered with engineering daily on trade-offs, estimates and sequencing.","Owned product documentation and internal enablement for new features.","Managed stakeholders across business, engineering, design, QA, and operations, keeping teams aligned on priorities, scope, and timelines.","Led sprint planning and backlog management, prioritizing work, refining requirements, and keeping the team focused on high-impact outcomes."],
-impact:[["15%","%","Product performance improvement"],["30–40%","%","QA efficiency gain"],["↓","","Production bugs reduced"],["Faster","","Sprint delivery Management"],["Stronger","","Cross-team collaboration"]],
-lessons:["A PRD is a decision log, not a wish list.","QA quality is a product feature — it compounds every sprint after it improves.","Operators tell you the truth that dashboards only hint at."],
+contrib:["Took features from staging to production, ensuring smooth and predictable releases","Improved product performance by ~15% through targeted flow improvements and better instrumentation","Increased QA efficiency by 30-40% by improving test coverage and streamlining defect tracking.","Reduced production defects through stronger pre-release regression testing.","Owned features end-to-end \u2014 from discovery and PRDs to design, development, QA, and release.","Wrote clear PRDs that enabled engineers to start building with minimal back-and-forth","Contributed directly to frontend development, helping turn product requirements into working experiences.","Introduced AI-assisted workflows into documentation, analysis and prototyping.","Partnered with engineering daily on trade-offs, estimates and sequencing.","Owned product documentation and internal enablement for new features.","Managed stakeholders across business, engineering, design, QA, and operations, keeping teams aligned on priorities, scope, and timelines.","Led sprint planning and backlog management, prioritizing work, refining requirements, and keeping the team focused on high-impact outcomes."],
+impact:[["15%","%","Product performance improvement"],["30-40%","%","QA efficiency gain"],["\u2193","","Production bugs reduced"],["Faster","","Sprint delivery Management"],["Stronger","","Cross-team collaboration"]],
+lessons:["A PRD is a decision log, not a wish list.","QA quality is a product feature \u2014 it compounds every sprint after it improves.","Operators tell you the truth that dashboards only hint at."],
 projects:[
 {n:"WMS",tag:"Product Quality & Inbound",p:"Started by analysing the WMS product, identifying critical gaps, and helping improve overall product quality and production readiness. Manual processes and unclear UI flows created severe bottlenecks on the warehouse floor.",s:"Took ownership of the Inbound module, working closely with users and stakeholders to understand operational challenges. Suggested and implemented product improvements based directly on real warehouse workflows and user needs.",o:"Managed feature development from requirements and refinement through development, QA, and release. Features shipped on schedule with clear acceptance criteria and zero critical post-launch defects.",v:"Worked closely with engineering and QA to make sure features were practical, reliable, and ready for production. System adoption improved across warehouse teams, leading to faster dock-to-stock times."},
 {n:"Yard Management System (YMS)",tag:"Product Ownership",p:"Joined the YMS journey from its early product launch phase as a Senior Product Analyst and gradually took ownership of the product. Initially, yard operations lacked visibility, causing delays and miscommunication between drivers and yard jockeys.",s:"Worked closely with business, operations, engineering, and QA stakeholders to shape and deliver the product. Participated across the full product lifecycle, from initial design and development to testing, release, and continuous iteration.",o:"Managed the product backlog, prioritised requirements, and led sprint planning based on business priorities and delivery timelines. Release cycles became much more predictable and aligned with core operational needs.",v:"Coordinated QA resources across releases to ensure testing was aligned with delivery commitments. Worked closely with engineers to resolve product and technical trade-offs, keeping delivery moving and maximizing ROI."},
 {n:"Independent YMS",tag:"From Solution Design to Delivery",p:"Worked on an independent version of YMS designed to manage yard operations without depending on the core WMS process. Customers needed a standalone solution that could be deployed rapidly without overhauling their existing warehouse systems.",s:"Helped shape the solution from the initial concept, translating complex operational requirements into a practical, intuitive product workflow. Worked closely with stakeholders, engineers, and QA to take the product from design through development and final release.",o:"Managed the product backlog, sprint planning, priorities, and delivery across multiple interconnected modules. Each module shipped with clear scope, strict acceptance criteria, and comprehensive user documentation.",v:"Coordinated QA efforts across the WMS wing and the complete YMS product, aligning resources with delivery timelines. Took increasing ownership of the product, successfully balancing customer needs, business priorities, technical constraints, and market demands."}]},
-shopester:{id:"shopester",co:"Shopester",dates:"FEB 2021 — MAY 2022",role:"Data Analyst Intern → Data Analyst",badge:1,vertHL:true,logo:LOGO_C,
+shopester:{id:"shopester",co:"Shopester",dates:"FEB 2021 \u2014 MAY 2022",role:"Data Analyst Intern to Data Analyst",badge:1,vertHL:true,logo:LOGO_C,
 brief:"First member of the analytics function. Built the analytics culture from zero, acted as the bridge between business and IT, and turned raw retail data into strategic decisions.",
 ai:["Analytics","Business Intelligence","Dashboard Building","User Analytics","Data Storytelling","Strategic Insights","Cross-functional Collaboration"],
-contrib:["Established the analytics practice, tooling and reporting cadence from scratch.","Translated business questions into data models and IT requirements — and back again.","Ran Market Basket Analysis that reshaped assortment and cross-sell decisions.","Supported the launch of the customer loyalty program with segmentation and targeting.","Built dashboards that helped leadership move from assumptions and guesswork to data-backed decisions."],
-impact:[["1st","st","Analytics hire — foundation built"],["↑","","Business visibility via dashboards"],["✓","","Data-driven decision culture"]],
+contrib:["Established the analytics practice, tooling and reporting cadence from scratch.","Translated business questions into data models and IT requirements \u2014 and back again.","Ran Market Basket Analysis that reshaped assortment and cross-sell decisions.","Supported the launch of the customer loyalty program with segmentation and targeting.","Built dashboards that helped leadership move from assumptions and guesswork to data-backed decisions."],
+impact:[["1st","st","Analytics hire \u2014 foundation built"],["\u2191","","Business visibility via dashboards"],["\u2713","","Data-driven decision culture"]],
 lessons:["A dashboard is only valuable when people actually use it to make decisions.","Analytics creates real value when it changes what the business does next."],
 projects:[
-{n:"Market Basket Analysis",tag:"Customer behaviour & loyalty analytics",p:"Analysed customer orders for a B2C brand in Thailand to understand purchasing behaviour and identify opportunities to increase sales. Looked at critical metrics such as Customer Lifetime Value (LTV), basket value, churn, repeat purchase rate, retention, and customer acquisition costs.",s:"Used these deep insights to identify highly profitable product combinations, distinct customer segments, and recurring purchasing patterns. Contributed directly to the design of a new loyalty programme, using data-driven customer segmentation and targeted offers to reach the right users.",o:"The analysis and resulting strategic recommendations contributed to an estimated 15–20% improvement in overall sales. Merchandising and promotional decisions became heavily evidence-based rather than relying on intuition or guesswork.",v:"Delivered data-backed customer segmentation, highly targeted loyalty offers, and measurable, sustained sales growth. Leadership now reviews these specific behavioral metrics weekly to guide inventory and marketing strategies."},
+{n:"Market Basket Analysis",tag:"Customer behaviour & loyalty analytics",p:"Analysed customer orders for a B2C brand in Thailand to understand purchasing behaviour and identify opportunities to increase sales. Looked at critical metrics such as Customer Lifetime Value (LTV), basket value, churn, repeat purchase rate, retention, and customer acquisition costs.",s:"Used these deep insights to identify highly profitable product combinations, distinct customer segments, and recurring purchasing patterns. Contributed directly to the design of a new loyalty programme, using data-driven customer segmentation and targeted offers to reach the right users.",o:"The analysis and resulting strategic recommendations contributed to an estimated 15-20% improvement in overall sales. Merchandising and promotional decisions became heavily evidence-based rather than relying on intuition or guesswork.",v:"Delivered data-backed customer segmentation, highly targeted loyalty offers, and measurable, sustained sales growth. Leadership now reviews these specific behavioral metrics weekly to guide inventory and marketing strategies."},
 {n:"Analytics Impact",tag:"Decision-support dashboards & reporting",p:"Used analytics tools to turn raw, unstructured business data into actionable insights that could support day-to-day operational decisions. Built automated dashboards for quick sales reviews, real-time KPI tracking, and comprehensive performance monitoring, replacing scattered and stale data sources.",s:"Analysed advertising and campaign performance to understand exactly what was working and where immediate improvements were needed. Created clear, standardized metrics and automated reports that helped stakeholders review performance and make faster, data-backed decisions.",o:"Worked closely with business stakeholders to translate complex data into concrete actions rather than just delivering static reports. Weekly meetings shifted from subjective debates to focused reviews of clear, objective metrics.",v:"Enabled faster, evidence-based decisions and drove a cultural shift from reactive reporting to proactive, actionable business insights. Marketing spend became significantly more efficient, and operational blind spots were eliminated."}]}
 };
 var SKILLS=[["PRODUCT",["Product Strategy","Product Discovery","Roadmapping","PRDs","Wireframing","Sprint Planning","Agile","Scrum","Stakeholder Management","Feature Prioritization"]],["AI PRODUCT DEVELOPMENT",["LLM applications","RAG","AI agents/workflows","prompt engineering","evaluation","rapid prototyping","AI-assisted development","local LLM deployment","MCP"]],["ANALYTICS",["SQL","Google Data Studio","Excel","Data Analysis","KPIs","A/B Testing"]]];
 var METRICS=[["4+","Products Built"],["25+","Features Delivered"],["15%","Product performance improvement"],["35%","QA Efficiency Gain"],["12+","Product Modules Shipped"]];
 var CASES=[
-{n:"Making WMS Weight-Aware",tag:"Major contribution in redesigning warehouse receiving around weight, bundling, and automated image validation.",blurb:"Weight-based receiving, bundling, and automated image validation replaced quantity-only receiving.",prob:"Traditional WMS receiving relied heavily on SKU quantities, which created challenges for warehouses handling scrap and weight-based inventory, where weight is a more reliable measure than piece count.",actionLabel:"WHAT I BUILT",action:"Major contribution in designing and implementing the Weight-Based WMS workflow that enabled warehouse teams to receive stock based on weight rather than quantity. I also worked on two critical operational workflows: Bundling — combined two product SKUs into a single SKU to simplify downstream inventory handling. Rendering & Image Validation — introduced a rendering workflow where an image is captured during the process and validated using image-processing logic. If the image fails validation, the process is automatically placed on hold for supervisor review, preventing incorrect inventory from progressing.",ownershipLabel:"PRODUCT OWNERSHIP",ownership:"Owned the user flows, business logic, edge cases, stakeholder alignment, and execution with engineering and QA to move the workflows toward production readiness.",impact:"Transformed a quantity-driven warehouse process into a weight-aware and validation-driven inventory workflow, improving operational control while reducing the risk of incorrect receiving and processing.",pm:""},
-{n:"Turning YMS into an Independent Product ⭐",tag:"Decoupling Yard Management from WMS and taking the product from problem discovery to launch.",blurb:"Decoupled YMS from WMS and took it from problem discovery to standalone launch.",prob:"The existing Yard Management System was tightly coupled with the WMS, forcing customers to adopt WMS workflows even when their operational requirement was only yard management. This created a product limitation: customers who already had another WMS—or didn't need a WMS—could not independently use YMS.",actionLabel:"WHAT I DID",action:"Led the product initiative to transform YMS into an independent product, capable of operating without WMS dependency. I drove the complete product journey: identified the functional dependencies between YMS and WMS, designed the decoupling logic and business rules, redesigned affected UI and user flows, defined the execution process for independent YMS operations, designed timeline-based execution flows for yard activities, worked closely with engineering and QA to translate requirements into executable features, managed client and stakeholder discussions throughout development, coordinated delivery, validation, and product readiness, and supported the product launch and rollout.",ownershipLabel:"PRODUCT OWNERSHIP",ownership:"Owned the end-to-end product initiative, aligning engineering, QA, stakeholders, and customers while translating a strategic decoupling problem into a launch-ready standalone product.",impact:"Converted YMS from a WMS-dependent module into a standalone product capability, expanding the addressable customer use case and enabling warehouses to adopt yard management without replacing or integrating their existing WMS.",pm:"I didn't just build another YMS feature—I helped turn a tightly coupled module into an independent product."},
+{n:"Making WMS Weight-Aware",tag:"Major contribution in redesigning warehouse receiving around weight, bundling, and automated image validation.",blurb:"Weight-based receiving, bundling, and automated image validation replaced quantity-only receiving.",prob:"Traditional WMS receiving relied heavily on SKU quantities, which created challenges for warehouses handling scrap and weight-based inventory, where weight is a more reliable measure than piece count.",actionLabel:"WHAT I BUILT",action:"Major contribution in designing and implementing the Weight-Based WMS workflow that enabled warehouse teams to receive stock based on weight rather than quantity. I also worked on two critical operational workflows: Bundling \u2014 combined two product SKUs into a single SKU to simplify downstream inventory handling. Rendering & Image Validation \u2014 introduced a rendering workflow where an image is captured during the process and validated using image-processing logic. If the image fails validation, the process is automatically placed on hold for supervisor review, preventing incorrect inventory from progressing.",ownershipLabel:"PRODUCT OWNERSHIP",ownership:"Owned the user flows, business logic, edge cases, stakeholder alignment, and execution with engineering and QA to move the workflows toward production readiness.",impact:"Transformed a quantity-driven warehouse process into a weight-aware and validation-driven inventory workflow, improving operational control while reducing the risk of incorrect receiving and processing.",pm:""},
+{n:"Turning YMS into an Independent Product",tag:"Decoupling Yard Management from WMS and taking the product from problem discovery to launch.",blurb:"Decoupled YMS from WMS and took it from problem discovery to standalone launch.",prob:"The existing Yard Management System was tightly coupled with the WMS, forcing customers to adopt WMS workflows even when their operational requirement was only yard management. This created a product limitation: customers who already had another WMS\u2014or didn't need a WMS\u2014could not independently use YMS.",actionLabel:"WHAT I DID",action:"Led the product initiative to transform YMS into an independent product, capable of operating without WMS dependency. I drove the complete product journey: identified the functional dependencies between YMS and WMS, designed the decoupling logic and business rules, redesigned affected UI and user flows, defined the execution process for independent YMS operations, designed timeline-based execution flows for yard activities, worked closely with engineering and QA to translate requirements into executable features, managed client and stakeholder discussions throughout development, coordinated delivery, validation, and product readiness, and supported the product launch and rollout.",ownershipLabel:"PRODUCT OWNERSHIP",ownership:"Owned the end-to-end product initiative, aligning engineering, QA, stakeholders, and customers while translating a strategic decoupling problem into a launch-ready standalone product.",impact:"Converted YMS from a WMS-dependent module into a standalone product capability, expanding the addressable customer use case and enabling warehouses to adopt yard management without replacing or integrating their existing WMS.",pm:"I didn't just build another YMS feature\u2014I helped turn a tightly coupled module into an independent product."},
 {n:"Building a Single Source of Truth for Schools",tag:"Connecting management, teachers, parents, and student information through one ERP platform.",blurb:"Unified school operations with role-based ERP experiences for management, teachers, parents, and administration.",prob:"School management often has student and faculty information distributed across different systems or maintained manually, making it difficult for management to get a unified view of operations.",actionLabel:"WHAT I BUILT",action:"Worked on Saroini ERP, a centralized school-management platform designed to bring student and faculty information into one place. The product creates different information experiences for different stakeholders: Management gets visibility into faculty and student information, teachers get easier access to relevant student information, parents get convenient access to student-related information, and administration gets centralized management of school data.",ownershipLabel:"PRODUCT THINKING",ownership:"The focus was not simply digitizing records, but designing a role-based information system where each stakeholder gets the information they need while management gets a consolidated operational view.",impact:"Created a single source of truth for school information, improving visibility, accessibility, and information flow between management, teachers, students, and parents.",pm:""},
 {n:"Turning Customer Behavior into Growth",tag:"Using basket analysis and customer metrics to drive segmentation, loyalty, and sales decisions.",blurb:"Combined basket analysis and customer metrics to drive segmentation, loyalty, and sales decisions.",prob:"Business teams had access to large amounts of customer and transaction data, but individual metrics such as LTV, retention, churn, CAC, and conversion rate did not provide enough context to understand customer behavior and purchasing patterns together.",actionLabel:"WHAT I DID",action:"Built a broader analytical framework around Market Basket Analysis, bringing customer behavior and business metrics together to help decision-makers understand basket size and purchasing patterns, Customer Lifetime Value (LTV/CLV), retention rate, churn rate, Customer Acquisition Cost (CAC), conversion rate, and repeat purchasing behavior. I translated these insights into actionable recommendations around customer segmentation, targeting, and loyalty-program design.",ownershipLabel:"ANALYTICS OWNERSHIP",ownership:"Owned the analytical framing, connected business metrics with customer behavior, and translated analysis into recommendations that could be used by decision-makers.",impact:"The analysis helped the business make better customer and growth decisions, contributed to sales improvement, and provided the foundation for designing a more targeted loyalty program.",pm:""}];
-var THINK=[["Discovering Problems","Start with the operator, not the roadmap. The best briefs come from watching work happen, not from asking what people want."],["Prioritization","Rank by reversibility and reach. Cheap, reversible bets ship first; expensive irreversible ones earn a validation step."],["Validation","A clickable prototype in a real workflow answers more than a survey ever will."],["Working with Engineering","Bring the constraint, not just the requirement. Trade-offs made together survive contact with the sprint."],["AI in Product Development","AI compresses discovery, drafting and prototyping. It does not compress judgement — protect that time."],["Measuring Success","Define the metric before the build. If nothing would change on the dashboard, question the feature."]];
-var KW="OWNERSHIP · MENTORING · IDEA VALIDATION · DOCUMENTATION · TRAINING · ALIGNMENT · PRDS · QA DISCIPLINE · ";
+var THINK=[["Discovering Problems","Start with the operator, not the roadmap. The best briefs come from watching work happen, not from asking what people want."],["Prioritization","Rank by reversibility and reach. Cheap, reversible bets ship first; expensive irreversible ones earn a validation step."],["Validation","A clickable prototype in a real workflow answers more than a survey ever will."],["Working with Engineering","Bring the constraint, not just the requirement. Trade-offs made together survive contact with the sprint."],["AI in Product Development","AI compresses discovery, drafting and prototyping. It does not compress judgement \u2014 protect that time."],["Measuring Success","Define the metric before the build. If nothing would change on the dashboard, question the feature."]];
+var KW="OWNERSHIP \u00b7 MENTORING \u00b7 IDEA VALIDATION \u00b7 DOCUMENTATION \u00b7 TRAINING \u00b7 ALIGNMENT \u00b7 PRDS \u00b7 QA DISCIPLINE \u00b7 ";
 function $(s){return document.querySelector(s)}
 function clamp01(v){return Math.max(0,Math.min(1,v))}
 function sstep(t){t=clamp01(t);return t*t*(3-2*t)}
-function backOut(t){t=clamp01(t);var c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)}
 function chips(a,plain,vert){return '<div class="chips'+(vert?' vert':'')+'">'+a.map(function(x){return '<span class="chip'+(plain?' plain':'')+'">'+x+'</span>'}).join('')+'</div>'}
 var HL_POS=[[5,10],[38,5],[66,13],[9,42],[43,38],[68,47],[24,70],[55,72]];
 function storyHTML(k){var s=STORY[k],projHTML="",journeyHTML="",badge="";
 if(k==="zetaa"){var zl=s.projects,odd=zl.length%2===1;
-projHTML='<div class="grid g2">'+zl.map(function(p,i){var wide=(odd&&i===zl.length-1)?' wide':'';return '<div class="card '+(p.feat?"feat":"")+' rv'+wide+'"><h3>'+p.n+'</h3>'+(p.url?'<a class="gobtn" href="'+p.url+'" target="_blank" rel="noopener">↗</a>':'')+'<div class="blk" style="margin-top:8px"><div class="mono">PROBLEM</div><p class="sub" style="margin-top:8px">'+p.p+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">SOLUTION</div><p class="sub" style="margin-top:8px">'+p.s+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">OUTCOME</div><p class="sub" style="margin-top:8px">'+p.o+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">BUSINESS VALUE</div><p class="sub" style="margin-top:8px">'+p.v+'</p></div></div>'}).join('')+'</div>';}
+projHTML='<div class="grid g2">'+zl.map(function(p,i){var wide=(odd&&i===zl.length-1)?' wide':'';return '<div class="card '+(p.feat?"feat":"")+' rv'+wide+'"><h3>'+p.n+'</h3>'+(p.url?'<a class="gobtn" href="'+p.url+'" target="_blank" rel="noopener">\u2197</a>':'')+'<div class="blk" style="margin-top:8px"><div class="mono">PROBLEM</div><p class="sub" style="margin-top:8px">'+p.p+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">SOLUTION</div><p class="sub" style="margin-top:8px">'+p.s+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">OUTCOME</div><p class="sub" style="margin-top:8px">'+p.o+'</p></div><div class="blk" style="margin-top:14px"><div class="mono">BUSINESS VALUE</div><p class="sub" style="margin-top:8px">'+p.v+'</p></div></div>'}).join('')+'</div>';}
 else{projHTML='<div class="plist">'+s.projects.map(function(p){return '<div class="prow rv"><div class="phead"><div><h3>'+p.n+'</h3><p class="pdesc">'+(p.tag||'')+'</p></div><span class="ph-r"><button class="plus" aria-label="Expand">+</button></span></div><div class="pbody"><div><div class="pad"><div class="pgrid"><div><div class="mono">PROBLEM</div><p class="sub">'+p.p+'</p></div><div><div class="mono">SOLUTION</div><p class="sub">'+p.s+'</p></div><div><div class="mono">OUTCOME</div><p class="sub">'+p.o+'</p></div><div><div class="mono">BUSINESS VALUE</div><p class="sub" style="color:var(--acc)">'+p.v+'</p></div></div></div></div></div>'}).join('')+'</div>';}
 if(k==="stackbox"){journeyHTML='<div class="stack-vis" id="stackVis"><div class="jcard"><div class="jtrack"><i class="jline"></i><i class="jfill" id="jfill"></i><div class="jstage" style="--x:8%"><span class="jdot">'+RKT+'</span><span class="jlbl">Product Analyst</span></div><div class="jstage" style="--x:36%"><span class="jdot">'+RKT+'</span><span class="jlbl">Cross-functional Collaboration</span></div><div class="jstage" style="--x:64%"><span class="jdot">'+RKT+'</span><span class="jlbl">Feature Ownership</span></div><div class="jstage final" style="--x:92%"><span class="jdot">'+RKT+'</span><span class="jlbl">Associate Product Manager</span></div><div class="jmarker" id="jmarker"></div></div></div></div>';}
 if(s.badge){badge='<div class="badge-row rv"><span class="bpill">Data Analyst Intern</span><span class="brocket">'+RKT+'</span><span class="bpill full" id="bpillFull">Full-Time Data Analyst</span></div>';}
 var hlHTML;
 if(s.floatHL){hlHTML='<div class="rv"><div class="mono hl-label">HIGHLIGHTS</div><div class="const float-hl">'+s.ai.map(function(n,i){var q=HL_POS[i%HL_POS.length];return '<span class="node" style="left:'+q[0]+'%;top:'+q[1]+'%;--d:'+(3+(i%5))+'s;--dl:'+(-(i*.7))+'s;--fx:'+((i%2?14:-12))+'px;--fy:'+((i%3?10:-12))+'px">'+n+'</span>'}).join('')+'</div></div>';}
 else{hlHTML='<div class="rv"><div class="mono hl-label">HIGHLIGHTS</div>'+chips(s.ai,false,!!s.vertHL)+'</div>';}
-return '<section class="cardsec" id="'+s.id+'" data-theme="'+(k==="zetaa"?"green":k==="stackbox"?"amber":"crimson")+'"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">PRODUCT STORY '+(k==="zetaa"?"01":k==="stackbox"?"02":"03")+'</div><div class="story-head rv">'+(s.logo?'<span class="co-logo">'+s.logo+'</span>':'')+'<h2 class="big">'+s.co+'</h2><span class="dates">'+s.dates+'</span></div><div class="role-line rv">'+s.role+'</div><p class="sub rv">'+s.brief+'</p>'+badge+'<div class="grid g2 blk">'+hlHTML+'<div class="rv"><div class="mono hl-label">MAJOR CONTRIBUTIONS</div><ul class="list">'+s.contrib.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'+journeyHTML+'<div class="blk rv"><div class="mono hl-label">LESSONS LEARNED</div><ul class="list">'+s.lessons.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div><div class="blk rv"><div class="mono hl-label">BUSINESS & PRODUCT IMPACT</div><div class="'+(k==="stackbox"?"g3":"g5")+' grid">'+s.impact.map(function(i){return '<div class="card rv"><div class="kpi"><div class="num" data-count="'+i[0]+'">'+i[0]+(i[1]&&/[%×]/.test(i[1])?i[1]:"")+'</div><p>'+i[2]+'</p></div></div>'}).join('')+'</div></div><div class="blk rv"><div class="mono hl-label">PROJECTS</div><div class="proj-toast">Scroll back to the card above completely to expand the Projects section.</div></div>'+projHTML+'</div></div></div></section>';}
+return '<section class="cardsec" id="'+s.id+'" data-theme="'+(k==="zetaa"?"green":k==="stackbox"?"amber":"crimson")+'"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">PRODUCT STORY '+(k==="zetaa"?"01":k==="stackbox"?"02":"03")+'</div><div class="story-head rv">'+(s.logo?'<span class="co-logo">'+s.logo+'</span>':'')+'<h2 class="big">'+s.co+'</h2><span class="dates">'+s.dates+'</span></div><div class="role-line rv">'+s.role+'</div><p class="sub rv">'+s.brief+'</p>'+badge+'<div class="grid g2 blk">'+hlHTML+'<div class="rv"><div class="mono hl-label">MAJOR CONTRIBUTIONS</div><ul class="list">'+s.contrib.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'+journeyHTML+'<div class="blk rv"><div class="mono hl-label">LESSONS LEARNED</div><ul class="list">'+s.lessons.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div><div class="blk rv"><div class="mono hl-label">BUSINESS & PRODUCT IMPACT</div><div class="'+(k==="stackbox"?"g3":"g5")+' grid">'+s.impact.map(function(i){return '<div class="card rv"><div class="kpi"><div class="num" data-count="'+i[0]+'">'+i[0]+(i[1]&&/[%\u00d7]/.test(i[1])?i[1]:"")+'</div><p>'+i[2]+'</p></div></div>'}).join('')+'</div></div><div class="blk rv"><div class="mono hl-label">PROJECTS</div><div class="proj-toast">Scroll back to the card above completely to expand the Projects section.</div></div>'+projHTML+'</div></div></div></section>';}
+
 $("#root").innerHTML=
-'<section class="cardsec" id="about" data-theme="teal"><div class="iscroll"><div class="sec"><div class="wrap"><div class="vision-grid"><div><div class="kicker mono rv">ABOUT</div><h2 class="big rv rv-mask">Building AI Products that solve real business problems.</h2><p class="sub rv" style="margin-top:18px">Three companies, three disciplines: analytics, product ownership, and AI-first engineering.</p><p class="sub rv" style="margin-top:14px">'+ABOUT_DESC+'</p><div class="blk rv">'+chips(["Product Thinking","AI-first Development","Product Delivery","Requirement Gathering","Stakeholder Collaboration","Engineering Mindset","Business Understanding"],false,true)+'</div></div><div><div class="vis-card rv">'+ABOUT_SVG+'</div><div class="about-cta rv"><a class="btn pri magnetic" href="#zetaa">View Journey ↓</a></div></div></div></div></div></div></section>'+
+'<section class="cardsec" id="about" data-theme="teal"><div class="iscroll"><div class="sec"><div class="wrap"><div class="vision-grid"><div><div class="kicker mono rv">ABOUT</div><h2 class="big rv rv-mask">Building AI Products that solve real business problems.</h2><p class="sub rv" style="margin-top:18px">Three companies, three disciplines: analytics, product ownership, and AI-first engineering.</p><p class="sub rv" style="margin-top:14px">'+ABOUT_DESC+'</p><div class="blk rv">'+chips(["Product Thinking","AI-first Development","Product Delivery","Requirement Gathering","Stakeholder Collaboration","Engineering Mindset","Business Understanding"],false,true)+'</div></div><div><div class="vis-card rv">'+ABOUT_SVG+'</div><div class="about-cta rv"><a class="btn pri magnetic" href="#zetaa">View Journey &darr;</a></div></div></div></div></div></div></section>'+
 storyHTML("zetaa")+storyHTML("stackbox")+storyHTML("shopester")+
 '<section class="cardsec" id="skills" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">SKILLS & METRICS</div><h2 class="big rv rv-mask">A working system, not a list.</h2><div class="stats">'+METRICS.map(function(m){return '<div class="stat rv"><div class="num" data-count="'+m[0]+'">'+m[0]+'</div><p>'+m[1]+'</p><i class="stat-bar"></i></div>'}).join('')+'</div><div class="g3 blk grid" style="margin-top:56px">'+SKILLS.map(function(k){return '<div class="const rv"><svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">'+k[1].map(function(n,i){var x=12+((i*37)%72)+5,y=14+((i*23)%66)+4;return '<line x1="50" y1="50" x2="'+x+'" y2="'+y+'" pathLength="1"/>'}).join('')+'</svg><div class="core">'+k[0]+'</div>'+k[1].map(function(n,i){return '<span class="node" style="left:'+(12+((i*37)%72))+'%;top:'+(14+((i*23)%66))+'%;--d:'+(3+(i%5))+'s;--dl:'+(-(i*.7))+'s;--fx:'+((i%2?14:-12))+'px;--fy:'+((i%3?10:-12))+'px">'+n+'</span>'}).join('')+'</div>'}).join('')+'</div></div></div></div></section>'+
-'<section class="cardsec" id="cases" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">IMPACTFUL STORIES</div><h2 class="big rv rv-mask">Outcome-driven product work.</h2><div class="g2 blk grid">'+CASES.map(function(c,i){var labels=["PROBLEM",c.actionLabel||"WHAT I DID",c.ownershipLabel||"OWNERSHIP","IMPACT"];if(c.pm)labels.push("PM STORY");return '<div class="card cs rv" data-cs="'+i+'"><h3>'+c.n+'</h3>'+(c.tag?'<p class="sub" style="margin-top:8px;font-weight:600;color:var(--ink2)">'+c.tag+'</p>':'')+'<p class="sub" style="margin-top:10px">'+c.blurb+'</p><div class="row">'+labels.map(function(x){return '<span class="mini">'+x+'</span>'}).join('')+'</div><div class="cs-more mono">CLICK TO READ MORE <span class="cs-arrow">→</span></div></div>'}).join('')+'</div></div></div></div></section>'+
+'<section class="cardsec" id="cases" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">IMPACTFUL STORIES</div><h2 class="big rv rv-mask">Outcome-driven product work.</h2><div class="g2 blk grid">'+CASES.map(function(c,i){var labels=["PROBLEM",c.actionLabel||"WHAT I DID",c.ownershipLabel||"OWNERSHIP","IMPACT"];if(c.pm)labels.push("PM STORY");return '<div class="card cs rv" data-cs="'+i+'"><h3>'+c.n+'</h3>'+(c.tag?'<p class="sub" style="margin-top:8px;font-weight:600;color:var(--ink2)">'+c.tag+'</p>':'')+'<p class="sub" style="margin-top:10px">'+c.blurb+'</p><div class="row">'+labels.map(function(x){return '<span class="mini">'+x+'</span>'}).join('')+'</div><div class="cs-more mono">CLICK TO READ MORE <span class="cs-arrow">&rarr;</span></div></div>'}).join('')+'</div></div></div></div></section>'+
 '<section class="cardsec" id="mindset" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="kicker mono rv">MY PRODUCT OPERATING SYSTEM</div><h2 class="big rv rv-mask">How I operate.</h2><div class="mind-grid"><div class="lead-line" id="philLine"><i id="philFill"></i>'+THINK.map(function(t){return '<div class="lead-node rv"><span class="ln-dot"></span><div><h4>'+t[0]+'</h4><p>'+t[1]+'</p></div></div>'}).join('')+'</div><div class="vis-card rv">'+NESTED_SVG+'</div></div><div class="marquee rv"><div class="mtrack"><span>'+KW+'</span><span>'+KW+'</span></div></div></div></div></div></div></section>'+
-'<section class="cardsec" id="vision" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="vision-grid"><div><div class="kicker mono rv" style="color:var(--acc2)">VISION</div><h2 class="big rv rv-mask">Future Vision.</h2><p class="sub rv" style="margin-top:14px">I\u2019m early in my product career — and I know exactly where I\u2019m headed. My compass is simple: build with AI, solve real problems, ship end-to-end, and create measurable impact. Every project in this letter is a step on that path.</p><p class="sub rv" style="margin-top:12px">AI Product Manager & Product Owner who works closely with engineers to turn product ideas into AI-powered products, with a strong interest in hands-on Product Engineering.</p><div class="north rv"><span class="nstar">★</span><div><div class="mono">NORTH STAR</div><p>AI products that solve real business problems — measured in outcomes, not demos.</p></div></div></div><div class="vis-card rv" style="background:#10141f">'+VPATH_SVG+'</div></div></div></div></div></section>'+
-'<section class="cardsec" id="contact" data-theme="teal"><div class="iscroll"><div class="sec"><div class="wrap"><div class="page rv"><div class="mono" style="color:var(--acc)">THE LAST PAGE OF THE LETTER</div><h2 class="script" style="font-size:clamp(2.2rem,5vw,3.6rem);color:#141c33;margin-top:12px">Let\u2019s build what\u2019s next.</h2><p class="sub" style="margin-top:14px">Open to AI Product Manager / Product Owner roles and collaborations. The fastest way to reach me:</p><div class="crow"><a class="btn pri magnetic" href="mailto:'+LINKS.email+'">'+ICON_MAIL+' '+LINKS.email+'</a><a class="btn ghost magnetic" href="tel:'+LINKS.phone+'">'+ICON_PHONE+' '+LINKS.phoneDisplay+'</a><a class="btn ghost magnetic" href="'+LINKS.linkedin+'" target="_blank">LINKEDIN</a><button class="btn ghost magnetic resume-dl">RESUME ⤓</button></div><div class="swipe-conclude mono">SWIPE <span class="dn">↓</span> TO REACH THE END OF THE PORTFOLIO</div></div></div></div></div><div class="conclude-hint mono">SWIPE ↓ MORE TO CONCLUDE</div></section>'+
-'<section class="cardsec" id="closing" data-theme="teal"><div class="iscroll"><div class="close-vis"><div class="close-pin" id="closePin"><div class="close-hint mono" id="closeHint">SWIPE ↓ TO REACH THE END OF THE PORTFOLIO</div><div class="thanks-env" id="thanksEnv">'+SEALED_ENV+'</div><div class="mini-env" id="miniEnv"><div class="me-in"></div><div class="me-letter" id="meLetter"></div><div class="me-pocket"></div><div class="me-flap-open" id="meFlapOpen"></div><div class="me-flap-closed" id="meFlapClosed"></div></div><div class="me-badge" id="meBadge">PR</div><div class="close-msg" id="closeMsg"><div class="script">Thank you for reading my journey.</div><p>Let\u2019s build the next generation of AI products together.</p><p class="mono" style="margin-top:18px;color:var(--acc)">— PRANAVA RAGHAVA G</p><div class="crow"><a class="btn pri magnetic" href="mailto:'+LINKS.email+'">'+ICON_MAIL+' '+LINKS.email+'</a><a class="btn ghost magnetic" href="tel:'+LINKS.phone+'">'+ICON_PHONE+' '+LINKS.phoneDisplay+'</a><a class="btn ghost magnetic" href="'+LINKS.linkedin+'" target="_blank">LINKEDIN</a><button class="btn ghost magnetic resume-dl">RESUME </button></div></div></div></div></div><footer>WRITTEN, BUILT & SEALED BY PRANAVA RAGHAVA G — 2026</footer></section>';
+'<section class="cardsec" id="vision" data-theme="violet"><div class="iscroll"><div class="sec"><div class="wrap"><div class="vision-grid"><div><div class="kicker mono rv" style="color:var(--acc2)">VISION</div><h2 class="big rv rv-mask">Future Vision.</h2><p class="sub rv" style="margin-top:14px">I\u2019m early in my product career \u2014 and I know exactly where I\u2019m headed. My compass is simple: build with AI, solve real problems, ship end-to-end, and create measurable impact. Every project in this letter is a step on that path.</p><p class="sub rv" style="margin-top:12px">AI Product Manager & Product Owner who works closely with engineers to turn product ideas into AI-powered products, with a strong interest in hands-on Product Engineering.</p><div class="north rv"><span class="nstar">\u2605</span><div><div class="mono">NORTH STAR</div><p>AI products that solve real business problems \u2014 measured in outcomes, not demos.</p></div></div></div><div class="vis-card rv" style="background:#10141f">'+VPATH_SVG+'</div></div></div></div></div></section>'+
+'<section class="cardsec" id="closing" data-theme="teal"><div class="iscroll"><div class="sec" style="display:flex;align-items:center;justify-content:center;min-height:100%;position:relative;padding:60px 20px;">'+
+'<div style="position:absolute;top:50%;left:50%;width:min(70vw,620px);opacity:0.15;pointer-events:none;z-index:1;margin-left:-310px;margin-top:-220px;">'+SEALED_ENV+'</div>'+
+'<div class="rv" style="position:relative;z-index:2;text-align:center;max-width:700px;width:100%;">'+
+'<div class="script" style="font-size:clamp(2.2rem,5vw,3.8rem);color:#141c33;margin-bottom:16px;line-height:1.2">Thank you for reading my journey.</div>'+
+'<p class="sub" style="margin:0 auto 20px;font-size:clamp(1rem,1.6vw,1.2rem)">Let\'s build the next generation of AI products together.</p>'+
+'<p class="mono" style="margin:0 auto 32px;color:var(--acc);font-size:12px;letter-spacing:.3em">\u2014 PRANAVA RAGHAVA G</p>'+
+'<div class="crow" style="justify-content:center;flex-wrap:wrap;gap:12px">'+
+'<a class="btn pri magnetic" href="mailto:'+LINKS.email+'" style="padding:16px 28px;font-size:12px">'+ICON_MAIL+' '+LINKS.email+'</a>'+
+'<a class="btn ghost magnetic" href="tel:'+LINKS.phone+'" style="padding:16px 28px;font-size:12px">'+ICON_PHONE+' '+LINKS.phoneDisplay+'</a>'+
+'<a class="btn ghost magnetic" href="'+LINKS.linkedin+'" target="_blank" style="padding:16px 28px;font-size:12px">LINKEDIN</a>'+
+'<button class="btn ghost magnetic resume-dl" style="padding:16px 28px;font-size:12px">RESUME &darr;</button>'+
+'</div>'+
+'</div>'+
+'</div><footer style="padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);font-size:10px;letter-spacing:.26em">WRITTEN, BUILT & SEALED BY PRANAVA RAGHAVA G \u2014 2026</footer></section>';
+
 function toast(msg){var t=$("#rtoast");if(!t)return;t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show","warn");},2600);}
 function toastWarn(msg){var t=$("#rtoast");if(!t)return;t.textContent=msg;t.classList.add("show","warn");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show","warn");},2600);}
-var RES_LB="#2563eb";
-function buildPDF(){if(!(window.jspdf&&window.jspdf.jsPDF)){toast("PDF ENGINE NOT AVAILABLE");return;}
-var J=window.jspdf.jsPDF,doc=new J({unit:"pt",format:"a4",orientation:"portrait"}),W=doc.internal.pageSize.getWidth(),M=46,y=54,cW=W-2*M;
-function normal(s){doc.setFont("helvetica","normal");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-function bold(s){doc.setFont("helvetica","bold");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-function italic(s){doc.setFont("helvetica","italic");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-function rule(w){doc.setDrawColor(0,0,0);doc.setLineWidth(w);doc.line(M,y,W-M,y);}
-function section(t){y+=10;bold(10.5);doc.text(t.toUpperCase(),M,y);y+=5;rule(.8);y+=16;}
-function textBlock(t,size,lh){normal(size);var l=doc.splitTextToSize(t,cW);doc.text(l,M,y);y+=l.length*lh+4;}
-function bullet(t){normal(8.6);var l=doc.splitTextToSize(t,cW-12);doc.text("•",M+1,y);doc.text(l,M+12,y);y+=l.length*13+3;}
-function roleHeader(co,role,when){bold(10.5);doc.text(co,M,y);normal(8.6);doc.text(when,W-M,y,{align:"right"});y+=12;italic(9.2);doc.text(role,M,y);y+=14;}
-function project(name,desc,url){bold(9);if(url){doc.setTextColor(37,99,235);doc.textWithLink(name,M+12,y,{url:url});doc.setTextColor(0,0,0);}else{doc.text(name,M+12,y);}y+=12;normal(8.3);var l=doc.splitTextToSize(desc,cW-12);doc.text(l,M+12,y);y+=l.length*12+4;}
-function skill(label,txt){bold(9);var ll=doc.splitTextToSize(label,100);doc.text(ll,M,y);normal(8.6);var l=doc.splitTextToSize(txt,cW-115);doc.text(l,M+110,y);y+=Math.max(ll.length*12,l.length*12.5,10)+6;}
-bold(24);doc.text("PRANAVA RAGHAVA G",M,y);y+=17;
-italic(11);doc.text("AI Product Manager | Product Owner",M,y);y+=13;
-normal(8.6);var cx=M;
-function addLink(label,url,sep){doc.setTextColor(37,99,235);doc.textWithLink(label,cx,y,{url:url});var w=doc.getTextWidth(label);cx+=w;doc.setTextColor(0,0,0);if(sep){doc.text("  |  ",cx,y);cx+=doc.getTextWidth("  |  ");}}
-addLink("raghavagodugunuri@gmail.com","mailto:"+LINKS.email,true);
-addLink("linkedin.com/in/pranava-raghava",LINKS.linkedin,true);
-addLink("Portfolio",LINKS.portfolio,true);
-addLink(LINKS.phoneDisplay,"tel:"+LINKS.phone,false);
-y+=11;rule(1.2);y+=9;
-section("Summary");
-textBlock("AI Product Manager & Product Owner with 4+ years of experience across product management, analytics and hands-on product development. Builds 0 to 1 AI products using AI-assisted development, while owning discovery, PRDs, delivery and outcomes. Experienced across supply-chain products, analytics and AI-powered web applications.",9,14);
-section("Core Skills");
-skill("Product","Discovery, PRDs, roadmapping, sprint planning, stakeholder management, QA and release ownership.");
-skill("AI Product Development","LLM applications, RAG, AI agents/workflows, prompt engineering, evaluation, rapid prototyping, AI-assisted development, local LLM deployment, MCP.");
-skill("Analytics","SQL, Google Data Studio, market-basket analysis, KPIs, dashboard design, data storytelling.");
-section("Experience & Key Projects");
-roleHeader("Zetaacraft","AI Product Manager","June 2026 - Present");
-bullet("Built products from 0 to 1 using AI copilots, owning product strategy, delivery and front-end execution.");
-project("Zetaacraft.com","Designed and built a fast, AI-assisted studio site combining services, case studies, and enquiries in one modular product. Created a cohesive brand experience that guides visitors toward enquiries and directly contributes to the sales pipeline.","https://zetaacraft.com/");
-project("Srisarojini ERP","Built a modular ERP with unified masters, role-based access, and live dashboards across departments. Eliminated manual reconciliation and gave leadership same-day visibility, creating a single source of truth across inventory, sales, and finance.","https://srisarojini.com/");
-project("Taskya","Built a task platform that unifies tasks, priorities, backlogs, and team context in one place. Turned planning into a simple prompt-and-review workflow, reducing coordination overhead and improving execution for solo professionals and small teams.","https://taskya-amber.vercel.app/");
-y+=3;
-roleHeader("Stackbox","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
-bullet("Owned supply-chain and yard-management modules end-to-end, from PRDs to QA and production release.");
-project("WMS - Product Quality & Inbound","Major contribution in designing and implementing the Weight-Based WMS workflow with weight-based receiving, bundling and automated image validation. Managed requirements, refinement, QA and release, improving operational reliability and adoption.",null);
-project("Yard Management System","Took ownership of YMS from early launch, shaping the product with business, operations, engineering and QA. Managed backlog, prioritisation and sprint planning, coordinated releases and testing, and resolved trade-offs to keep delivery on track.",null);
-project("Independent YMS","Shaped an independent YMS from concept to delivery, enabling yard operations without WMS dependency. Managed backlog and sprint planning across modules and coordinated QA, balancing customer needs, business priorities and timelines.",null);
-y+=3;
-roleHeader("Shopester","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
-bullet("First analytics hire; built reporting cadence, dashboards and decision-support analytics from zero.");
-project("Market Basket Analysis","Analysed LTV, churn, and purchasing patterns to design loyalty programmes and segmentation. Recommendations contributed to 15-20% sales improvement and a more targeted loyalty program.",null);
-project("Analytics Impact","Built automated dashboards for KPI tracking and campaign performance. Shifted culture from reactive reporting to actionable insights, enabling faster evidence-based decisions.",null);
-section("Key Impact Metrics");
-var metrics=[["4+","Products Built"],["25+","Features Delivered"],["15%","Product performance improvement"],["35%","QA Efficiency Gain"],["12+","Product Modules Shipped"]];
-var colW=cW/5;
-metrics.forEach(function(m,i){var x=M+(i%5)*colW+(colW/2);bold(12);doc.text(m[0],x,y,{align:"center"});normal(7.5);var ml=doc.splitTextToSize(m[1],colW-8);doc.text(ml,x,y+13,{align:"center"});if(i%5===4)y+=34;});
-doc.save("Pranava_Raghava_G_Resume.pdf");toast("RESUME PDF DOWNLOADED");}
+function buildPDF(){
+  if(!(window.jspdf&&window.jspdf.jsPDF)){toast("PDF ENGINE NOT AVAILABLE");return;}
+  var J=window.jspdf.jsPDF, doc=new J({unit:"pt",format:"a4",orientation:"portrait"}), W=doc.internal.pageSize.getWidth(), M=40, y=40, cW=W-2*M;
+  
+  function normal(s){doc.setFont("helvetica","normal");doc.setFontSize(s);doc.setTextColor(0,0,0);}
+  function bold(s){doc.setFont("helvetica","bold");doc.setFontSize(s);doc.setTextColor(0,0,0);}
+  function italic(s){doc.setFont("helvetica","italic");doc.setFontSize(s);doc.setTextColor(0,0,0);}
+  function rule(){doc.setDrawColor(0,0,0);doc.setLineWidth(0.5);doc.line(M,y,W-M,y);}
+  function section(t){y+=12;bold(11);doc.text(t.toUpperCase(),M,y);y+=4;rule();y+=10;}
+  function textBlock(t,size,lh){normal(size);var l=doc.splitTextToSize(t,cW);doc.text(l,M,y);y+=l.length*lh+6;}
+  function bullet(t){normal(9.5);var l=doc.splitTextToSize(t,cW-14);doc.text("-",M,y);doc.text(l,M+10,y);y+=l.length*12+3;}
+  function roleHeader(co,role,when){bold(11);doc.text(co,M,y);normal(9);doc.text(when,W-M,y,{align:"right"});y+=11;italic(9.5);doc.text(role,M,y);y+=12;}
+  function bulletProject(name, url, desc) {
+      normal(9.5);
+      doc.text("-", M, y);
+      doc.setTextColor(37, 99, 235);
+      doc.textWithLink(name, M + 10, y, {url: url});
+      doc.setTextColor(0, 0, 0);
+      
+      var nameW = doc.getTextWidth(name + " ");
+      var descLines = doc.splitTextToSize(desc, cW - M - 10 - nameW);
+      
+      if (descLines.length === 1 && (nameW + doc.getTextWidth(descLines[0]) < cW - M - 10)) {
+          doc.text(descLines[0], M + 10 + nameW, y);
+          y += 12;
+      } else {
+          doc.text(descLines[0], M + 10 + nameW, y);
+          if (descLines.length > 1) {
+              doc.text(descLines.slice(1), M + 10, y + 12);
+              y += 12 * descLines.length;
+          } else {
+              y += 12;
+          }
+      }
+  }
+  
+  bold(22);doc.text("PRANAVA RAGHAVA G",W/2,y,{align:"center"});y+=16;
+  italic(11);doc.text("Product Manager | AI & 0 to 1 Products",W/2,y,{align:"center"});y+=14;
+  normal(9);
+  
+  // Center-aligned contact details
+  var contacts = [
+      {label: "raghavagodugunuri@gmail.com", url: "mailto:raghavagodugunuri@gmail.com"},
+      {label: "+91 8428638871", url: "tel:+918428638871"},
+      {label: "linkedin.com/in/pranava-raghava", url: "https://www.linkedin.com/in/pranava-raghava/"},
+      {label: "Portfolio", url: "https://pranava-raghava-g.github.io/pr-s-portfolio/"}
+  ];
+  var totalWidth = 0;
+  contacts.forEach(function(c, i) {
+      totalWidth += doc.getTextWidth(c.label);
+      if (i < contacts.length - 1) totalWidth += doc.getTextWidth("  |  ");
+  });
+  var cx = (W - totalWidth) / 2;
+  contacts.forEach(function(c, i) {
+      doc.setTextColor(37,99,235);
+      doc.textWithLink(c.label, cx, y, {url: c.url});
+      cx += doc.getTextWidth(c.label);
+      doc.setTextColor(0,0,0);
+      if (i < contacts.length - 1) {
+          doc.text("  |  ", cx, y);
+          cx += doc.getTextWidth("  |  ");
+      }
+  });
+  y+=12;rule();y+=12;
+  
+  section("Summary");
+  var summary="Product Manager with 4+ years of experience shipping supply chain systems, internal ERPs, and AI workflows. Spent 3+ years at Stackbox scaling complex warehouse tools and currently building 0 to 1 AI tools at Zetaacraft. Pairs data analytics with hands-on technical execution to ship software that solves real operational headaches.";
+  normal(9.5);
+  var summaryLines=doc.splitTextToSize(summary,cW);
+  doc.text(summaryLines,M,y);
+  y+=summaryLines.length*13+6;
+  
+  section("Key Impact");
+  textBlock("4+ Products Shipped  |  25+ Features Delivered  |  ~15% System Speedup  |  30-40% QA Efficiency Improvement",9.5,13);
+  
+  section("Core Skills");
+  var skills=[
+    {label:"Product Management",text:"Discovery, PRDs, User Flows, Roadmaps, Backlog Prioritization, Sprint Planning, Stakeholder Alignment, QA & Releases"},
+    {label:"AI & Technical",text:"LLM Workflows, RAG, AI Agents, Prompt Engineering, Model Evaluation, Local LLMs, MCP, API Integration, Prototyping"},
+    {label:"Analytics",text:"SQL, KPI Dashboards, Market Basket Analysis, Data Storytelling"}
+  ];
+  var labelX=M;
+  var contentX=M+100;
+  var contentWidth=cW-100;
+  skills.forEach(function(s){
+    bold(9.5);
+    doc.text(s.label+":",labelX,y);
+    normal(9.5);
+    var l=doc.splitTextToSize(s.text,contentWidth);
+    doc.text(l,contentX,y);
+    y+=l.length*12+4;
+  });
+  y+=4;
+  
+  section("Experience");
+  
+  roleHeader("ZETAACRAFT","AI Product Manager","Jun 2026 - Present");
+  var zetaDesc="Drive end-to-end product delivery for 0 to 1 web applications, ERP tools, and LLM-powered workflows.";
+  var zetaLines=doc.splitTextToSize(zetaDesc,cW);
+  normal(9.5);
+  doc.text(zetaLines,M,y);
+  y+=zetaLines.length*13+6;
+  
+  bulletProject("Taskya", "https://taskya-amber.vercel.app/", "Built an AI workspace converting meeting notes into structured action items, cutting post-meeting admin work by ~40%.");
+  bulletProject("Zetaacraft.com", "https://zetaacraft.com/", "Designed and built the company's flagship website, owning the end-to-end experience across service discovery, navigation, and enquiry flows.");
+  bulletProject("Srisarojini ERP", "https://srisarojini.com/", "Designed a modular ERP centralizing operational master data, eliminating manual spreadsheet reconciliation.");
+  y+=6;
+  
+  roleHeader("STACKBOX","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
+  var stackDesc="Promoted to APM to lead product execution across Warehouse (WMS) and Yard (YMS) systems with ops, engineering, and business teams.";
+  var stackLines=doc.splitTextToSize(stackDesc,cW);
+  normal(9.5);
+  doc.text(stackLines,M,y);
+  y+=stackLines.length*13+6;
+  
+  bullet("0 to 1 Independent YMS: Defined requirements, UI flows, and logic to decouple YMS from WMS, opening up new standalone client deployments.");
+  bullet("Weight-Based Receiving: Led product definition and launch of weight-based inbound workflows, replacing unit-count checks.");
+  bullet("Automated Image Validation: Introduced automated image verification and supervisor escalation rules to catch errors before order completion.");
+  bullet("System Performance: Improved overall product speed by ~15% through workflow cleanup and targeted event tracking.");
+  bullet("QA Efficiency: Boosted testing turnaround by 30-40% by rebuilding test plans and streamlining how bugs are sorted and fixed.");
+  bullet("Release Execution: Managed sprint backlogs, UAT, and release schedules across multiple modules for a steady delivery cadence.");
+  y+=6;
+  
+  roleHeader("SHOPESTER","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
+  bullet("Initial analytics hire setting up basic reporting infrastructure, recurring dashboards, and performance tracking.");
+  bullet("Ran Market Basket Analysis on purchase patterns and churn, refining loyalty program tiers and supporting a 15-20% sales increase.");
+  y+=6;
+  
+  section("Education");
+  bold(11);doc.text("SASTRA Deemed University",M,y);normal(9);doc.text("2021",W-M,y,{align:"right"});y+=11;
+  italic(9.5);doc.text("Bachelor's Degree in Computer Science",M,y);
+  
+  doc.save("Pranava_Raghava_G_Resume.pdf");toast("RESUME PDF DOWNLOADED");
+}
+
 function resumePremiumHTML(){
-function sec(t){return '<div style="margin:26px 0 16px;font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#000;border-bottom:1.5px solid #000;padding-bottom:8px">'+t+'</div>';}
-function skill(label,txt){return '<div style="display:flex;gap:20px;margin:12px 0"><div style="width:130px;font-weight:700;font-size:11px;color:#000">'+label+'</div><div style="flex:1;font-size:11px;line-height:1.9;color:#000">'+txt+'</div></div>';}
-function expHeader(co,role,when){return '<div style="margin-top:28px"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-size:14px;font-weight:700;color:#000">'+co+'</div><div style="font-size:10px;color:#000">'+when+'</div></div><div style="font-size:11px;font-style:italic;color:#000;margin-top:4px">'+role+'</div></div>';}
-function bullet(t){return '<div style="font-size:11px;line-height:1.9;color:#000;margin:12px 0 12px 14px">• '+t+'</div>';}
-function project(n,d,url){var nameHtml=url?'<a href="'+url+'" style="font-size:11px;font-weight:700;color:'+RES_LB+';text-decoration:underline" target="_blank">'+n+'</a>':'<div style="font-size:11px;font-weight:700;color:#000">'+n+'</div>';return '<div style="margin:12px 0 16px 14px">'+nameHtml+'<div style="font-size:11px;line-height:1.9;color:#000;margin-top:4px">'+d+'</div></div>';}
-var h='<div style="max-width:780px;margin:0 auto;color:#000;background:#fff;font-family:Helvetica,Arial,sans-serif;line-height:1.7;padding:40px 38px;border:1px solid #000">';
-h+='<div style="font-size:31px;font-weight:700;letter-spacing:1.2px;color:#000">PRANAVA RAGHAVA G</div>';
-h+='<div style="font-size:12.5px;font-style:italic;margin-top:7px;color:#000">AI Product Manager | Product Owner</div>';
-h+='<div style="font-size:10px;margin-top:9px;color:#000"><a href="mailto:'+LINKS.email+'" style="color:'+RES_LB+';text-decoration:underline">'+LINKS.email+'</a> &nbsp;|&nbsp; <a href="'+LINKS.linkedin+'" style="color:'+RES_LB+';text-decoration:underline" target="_blank">linkedin.com/in/pranava-raghava</a> &nbsp;|&nbsp; <a href="'+LINKS.portfolio+'" style="color:'+RES_LB+';text-decoration:underline" target="_blank">Portfolio</a> &nbsp;|&nbsp; <a href="tel:'+LINKS.phone+'" style="color:'+RES_LB+';text-decoration:underline">'+LINKS.phoneDisplay+'</a></div>';
-h+='<div style="height:2px;background:#000;margin:20px 0 8px"></div>';
-h+=sec("Summary");
-h+='<p style="font-size:11px;line-height:2.0;color:#000;margin:0">AI Product Manager & Product Owner with 4+ years of experience across product management, analytics and hands-on product development. Builds 0→1 AI products using AI-assisted development, while owning discovery, PRDs, delivery and outcomes. Experienced across supply-chain products, analytics and AI-powered web applications.</p>';
-h+=sec("Core Skills");
-h+=skill("Product","Discovery, PRDs, roadmapping, sprint planning, stakeholder management, QA and release ownership.");
-h+=skill("AI Product Development","LLM applications, RAG, AI agents/workflows, prompt engineering, evaluation, rapid prototyping, AI-assisted development, local LLM deployment, MCP.");
-h+=skill("Analytics","SQL, Google Data Studio, market-basket analysis, KPIs, dashboard design, data storytelling.");
-h+=sec("Experience & Key Projects");
-h+=expHeader("Zetaacraft","AI Product Manager","June 2026 - Present");
-h+=bullet("Built products from 0 to 1 using AI copilots, owning product strategy, delivery and front-end execution.");
-h+=project("Zetaacraft.com","Designed and built a fast, AI-assisted studio site combining services, case studies, and enquiries in one modular product. Created a cohesive brand experience that guides visitors toward enquiries and directly contributes to the sales pipeline.","https://zetaacraft.com/");
-h+=project("Srisarojini ERP","Built a modular ERP with unified masters, role-based access, and live dashboards across departments. Eliminated manual reconciliation and gave leadership same-day visibility, creating a single source of truth across inventory, sales, and finance.","https://srisarojini.com/");
-h+=project("Taskya","Built a task platform that unifies tasks, priorities, backlogs, and team context in one place. Turned planning into a simple prompt-and-review workflow, reducing coordination overhead and improving execution for solo professionals and small teams.","https://taskya-amber.vercel.app/");
-h+=expHeader("Stackbox","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
-h+=bullet("Owned supply-chain and yard-management modules end-to-end, from PRDs to QA and production release.");
-h+=project("WMS - Product Quality & Inbound","Major contribution in designing and implementing the Weight-Based WMS workflow with weight-based receiving, bundling and automated image validation. Managed requirements, refinement, QA and release, improving operational reliability and adoption.",null);
-h+=project("Yard Management System","Took ownership of YMS from early launch, shaping the product with business, operations, engineering and QA. Managed backlog, prioritisation and sprint planning, coordinated releases and testing, and resolved trade-offs to keep delivery on track.",null);
-h+=project("Independent YMS","Shaped an independent YMS from concept to delivery, enabling yard operations without WMS dependency. Managed backlog and sprint planning across modules and coordinated QA, balancing customer needs, business priorities and timelines.",null);
-h+=expHeader("Shopester","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
-h+=bullet("First analytics hire; built reporting cadence, dashboards and decision-support analytics from zero.");
-h+=project("Market Basket Analysis","Analysed LTV, churn, and purchasing patterns to design loyalty programmes and segmentation. Recommendations contributed to 15-20% sales improvement and a more targeted loyalty program.",null);
-h+=project("Analytics Impact","Built automated dashboards for KPI tracking and campaign performance. Shifted culture from reactive reporting to actionable insights, enabling faster evidence-based decisions.",null);
-h+=sec("Key Impact Metrics");
-var metrics=["4+ Products Built","25+ Features Delivered","15% Product performance improvement","35% QA Efficiency Gain","12+ Product Modules Shipped"];
-h+='<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:10px">'+metrics.map(function(m){return '<span style="font-size:9.5px;padding:8px 14px;border:1px solid #000;border-radius:99px;color:#000;font-weight:700;background:#fff;line-height:1.45;text-align:center">'+m+'</span>'}).join('')+'</div></div>';
-return h;}
-function downloadHTMLResume(){var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>Pranava Raghava G — Resume</title></head><body style="margin:32px;background:#fff">'+resumePremiumHTML()+'</body></html>';var blob=new Blob([html],{type:"text/html"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="Pranava_Raghava_G_Resume.html";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},2000);}
+  var h = '<div style="max-width:780px;margin:0 auto;color:#000;background:#fff;font-family:Helvetica,Arial,sans-serif;line-height:1.6;padding:40px 38px;border:1px solid #000">';
+  h += '<div style="text-align:center;margin-bottom:20px;">';
+  h += '<div style="font-size:28px;font-weight:700;letter-spacing:1px;color:#000">PRANAVA RAGHAVA G</div>';
+  h += '<div style="font-size:14px;font-weight:600;margin-top:4px;color:#333">Product Manager | AI & 0 to 1 Products</div>';
+  h += '<div style="font-size:11px;margin-top:8px;color:#000;text-align:center">';
+  h += '<a href="mailto:raghavagodugunuri@gmail.com" style="color:#2563eb;text-decoration:none">raghavagodugunuri@gmail.com</a> &nbsp;|&nbsp; ';
+  h += '<a href="tel:+918428638871" style="color:#2563eb;text-decoration:none">+91 8428638871</a> &nbsp;|&nbsp; ';
+  h += '<a href="https://www.linkedin.com/in/pranava-raghava/" style="color:#2563eb;text-decoration:none" target="_blank">linkedin.com/in/pranava-raghava</a> &nbsp;|&nbsp; ';
+  h += '<a href="https://pranava-raghava-g.github.io/pr-s-portfolio/" style="color:#2563eb;text-decoration:none" target="_blank">Portfolio</a>';
+  h += '</div></div>';
+  
+  h += '<div style="height:1px;background:#000;margin:20px 0"></div>';
+  
+  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">SUMMARY</div>';
+  h += '<p style="font-size:11px;line-height:1.7;color:#000;margin:0 0 15px 0">Product Manager with 4+ years of experience shipping supply chain systems, internal ERPs, and AI workflows. Spent 3+ years at Stackbox scaling complex warehouse tools and currently building 0 to 1 AI tools at Zetaacraft. Pairs data analytics with hands-on technical execution to ship software that solves real operational headaches.</p>';
+  
+  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">KEY IMPACT</div>';
+  h += '<p style="font-size:11px;line-height:1.7;color:#000;margin:0 0 15px 0">4+ Products Shipped &nbsp;|&nbsp; 25+ Features Delivered &nbsp;|&nbsp; ~15% System Speedup &nbsp;|&nbsp; 30-40% QA Efficiency Improvement</p>';
+
+  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">CORE SKILLS</div>';
+  h += '<div style="display:flex;margin-bottom:6px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">Product Management:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">Discovery, PRDs, User Flows, Roadmaps, Backlog Prioritization, Sprint Planning, Stakeholder Alignment, QA & Releases</div></div>';
+  h += '<div style="display:flex;margin-bottom:6px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">AI & Technical:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">LLM Workflows, RAG, AI Agents, Prompt Engineering, Model Evaluation, Local LLMs, MCP, API Integration, Prototyping</div></div>';
+  h += '<div style="display:flex;margin-bottom:15px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">Analytics:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">SQL, KPI Dashboards, Market Basket Analysis, Data Storytelling</div></div>';
+
+  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">EXPERIENCE</div>';
+  
+  h += '<div style="margin-top:15px">';
+  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">ZETAACRAFT</div><div style="font-size:11px;color:#000">Jun 2026 - Present</div></div>';
+  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">AI Product Manager</div>';
+  h += '<p style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 0">Drive end-to-end product delivery for 0 to 1 web applications, ERP tools, and LLM-powered workflows.</p>';
+  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
+  h += '<li style="margin-bottom:4px"><strong><a href="https://taskya-amber.vercel.app/" target="_blank" style="color:#2563eb;text-decoration:underline">Taskya</a>:</strong> Built an AI workspace converting meeting notes into structured action items, cutting post-meeting admin work by ~40%.</li>';
+  h += '<li style="margin-bottom:4px"><strong><a href="https://zetaacraft.com/" target="_blank" style="color:#2563eb;text-decoration:underline">Zetaacraft.com</a>:</strong> Designed and built the company\'s flagship website, owning the end-to-end experience across service discovery, navigation, and enquiry flows.</li>';
+  h += '<li style="margin-bottom:4px"><strong><a href="https://srisarojini.com/" target="_blank" style="color:#2563eb;text-decoration:underline">Srisarojini ERP</a>:</strong> Designed a modular ERP centralizing operational master data, eliminating manual spreadsheet reconciliation.</li>';
+  h += '</ul></div>';
+
+  h += '<div style="margin-top:18px">';
+  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">STACKBOX</div><div style="font-size:11px;color:#000">Feb 2023 - May 2026</div></div>';
+  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Product Analyst - Associate Product Manager</div>';
+  h += '<p style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 0">Promoted to APM to lead product execution across Warehouse (WMS) and Yard (YMS) systems with ops, engineering, and business teams.</p>';
+  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
+  h += '<li style="margin-bottom:4px"><strong>0 to 1 Independent YMS:</strong> Defined requirements, UI flows, and logic to decouple YMS from WMS, opening up new standalone client deployments.</li>';
+  h += '<li style="margin-bottom:4px"><strong>Weight-Based Receiving:</strong> Led product definition and launch of weight-based inbound workflows, replacing unit-count checks.</li>';
+  h += '<li style="margin-bottom:4px"><strong>Automated Image Validation:</strong> Introduced automated image verification and supervisor escalation rules to catch errors before order completion.</li>';
+  h += '<li style="margin-bottom:4px"><strong>System Performance:</strong> Improved overall product speed by ~15% through workflow cleanup and targeted event tracking.</li>';
+  h += '<li style="margin-bottom:4px"><strong>QA Efficiency:</strong> Boosted testing turnaround by 30-40% by rebuilding test plans and streamlining how bugs are sorted and fixed.</li>';
+  h += '<li style="margin-bottom:4px"><strong>Release Execution:</strong> Managed sprint backlogs, UAT, and release schedules across multiple modules for a steady delivery cadence.</li>';
+  h += '</ul></div>';
+
+  h += '<div style="margin-top:18px">';
+  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">SHOPESTER</div><div style="font-size:11px;color:#000">Feb 2021 - May 2022</div></div>';
+  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Data Analyst Intern - Data Analyst</div>';
+  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
+  h += '<li style="margin-bottom:4px">Initial analytics hire setting up basic reporting infrastructure, recurring dashboards, and performance tracking.</li>';
+  h += '<li style="margin-bottom:4px">Ran Market Basket Analysis on purchase patterns and churn, refining loyalty program tiers and supporting a 15-20% sales increase.</li>';
+  h += '</ul></div>';
+
+  h += '<div style="margin:25px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">EDUCATION</div>';
+  h += '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:10px"><div style="font-size:12px;font-weight:700;color:#000">SASTRA Deemed University</div><div style="font-size:11px;color:#000">2021</div></div>';
+  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Bachelor\'s Degree in Computer Science</div>';
+
+  h += '</div>';
+  return h;
+}
+
+function downloadHTMLResume(){var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>Pranava Raghava G - Resume</title></head><body style="margin:32px;background:#fff">'+resumePremiumHTML()+'</body></html>';var blob=new Blob([html],{type:"text/html"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="Pranava_Raghava_G_Resume.html";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},2000);}
 function openResumeModal(){$("#mbody").innerHTML=resumePremiumHTML()+'<div class="crow no-print" style="justify-content:center;margin-top:26px;gap:12px"><button class="btn pri" onclick="window.print()">PRINT / SAVE AS PDF</button><button class="btn ghost" onclick="buildPDF()">DOWNLOAD PDF</button></div>';$("#modal").classList.add("open");document.body.classList.add("modal-lock");}
-function downloadResume(){toast("PREPARING RESUME…");if(window.jspdf&&window.jspdf.jsPDF){try{buildPDF();return;}catch(e){}}try{downloadHTMLResume();toast("RESUME FILE DOWNLOADED");return;}catch(e){}openResumeModal();toast("USE PRINT / SAVE AS PDF");}
+function downloadResume(){toast("PREPARING RESUME...");if(window.jspdf&&window.jspdf.jsPDF){try{buildPDF();return;}catch(e){}}try{downloadHTMLResume();toast("RESUME FILE DOWNLOADED");return;}catch(e){}openResumeModal();toast("USE PRINT / SAVE AS PDF");}
 document.addEventListener("click",function(e){var b=e.target.closest(".resume-dl");if(!b)return;e.preventDefault();e.stopPropagation();downloadResume();},true);
 var cards=[].slice.call(document.querySelectorAll(".cardsec"));
 cards.forEach(function(c,i){c.style.zIndex=String(i+1);});
 var opened=false,ready=false,settled=false,settleAt=0;
 function isLocked(c){var i=cards.indexOf(c),nxt=cards[i+1];if(!nxt)return false;if(MOB.matches){var r=$("#root");if(!r)return false;return r.scrollLeft>=(nxt.offsetLeft-2);}return window.scrollY>=(nxt.offsetTop-2);}
 function reveal(el){if(HAS_GSAP){if(el.classList.contains("rv-mask"))gsap.to(el,{opacity:1,clipPath:"inset(0 0 0% 0)",duration:1,ease:"power3.inOut"});else gsap.to(el,{opacity:1,y:0,duration:.7,ease:"power3.out"});if(el.classList.contains("stat")||el.classList.contains("const"))el.classList.add("on");}else{el.style.opacity="1";el.style.transform="none";el.style.clipPath="none";el.classList.add("on");}}
-function applyStack(){if(MOB.matches){var r=$("#root"),idx=Math.round(r.scrollLeft/Math.max(1,r.clientWidth));for(var j=0;j<cards.length;j++){cards[j].style.transform="";cards[j].style.pointerEvents=(j===idx)?"":"none";}return;}var y=window.scrollY,vh=window.innerHeight;for(var i=0;i<cards.length;i++){var c=cards[i],d=y-c.offsetTop;if(d>0){var cp=clamp01(d/vh);c.style.transform="translateY("+d+"px) scale("+(1-.05*sstep(cp))+")";c.style.filter="brightness("+(1-.12*sstep(cp))+")";var inn=c.querySelector(".iscroll");if(inn){if(cp>=.999&&!c.dataset.rst){c.dataset.rst="1";inn.scrollTop=0;}else if(cp<.9&&c.dataset.rst){delete c.dataset.rst;}}}else{c.style.transform="";}c.style.pointerEvents=isLocked(c)?"none":"";}}
+function applyStack(){if(MOB.matches){var r=$("#root"),idx=Math.round(r.scrollLeft/Math.max(1,r.clientWidth));for(var j=0;j<cards.length;j++){cards[j].style.transform="";cards[j].style.pointerEvents=(j===idx)?"":"none";}return;}var y=window.scrollY,vh=window.innerHeight;for(var i=0;i<cards.length;i++){var c=cards[i],d=y-c.offsetTop;if(d>0){var cp=clamp01(d/vh);c.style.transform="translateY("+d+"px) scale("+(1-.05*sstep(cp))+")";c.style.filter="brightness("+(1-.12*sstep(cp))+")";var inn=c.querySelector(".iscroll");if(inn){if(cp>=.999&&!c.dataset.rst){c.dataset.rst="1";inn.scrollTop=0;}else if(cp<.9&&c.dataset.rst){delete c.dataset.rst;}}}else{c.style.transform="";c.style.filter="";}}c.style.pointerEvents=isLocked(c)?"none":"";}
 function updateBar(){var el=$("#pbar");if(MOB.matches){var r=$("#root"),m=Math.max(1,r.scrollWidth-r.clientWidth);el.style.transform="scaleX("+(r.scrollLeft/m)+")";}else{var h=document.documentElement;el.style.transform="scaleX("+(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight))+")";}}
 addEventListener("scroll",function(){updateBar();applyStack();},{passive:true});
 $("#root").addEventListener("scroll",function(){updateBar();applyStack();},{passive:true});
@@ -453,18 +569,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
 document.querySelectorAll(".gobtn").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();window.open(a.getAttribute("href"),"_blank");});});
 addEventListener("wheel",function(e){
 var modalOpen=$("#modal").classList.contains("open");
-if(modalOpen){
-var sh=document.querySelector("#modal .sheet");
-var inSheet=e.target.closest&&e.target.closest("#modal .sheet");
-if(inSheet&&sh){var aT=sh.scrollTop<=0,aB=sh.scrollTop+sh.clientHeight>=sh.scrollHeight-1;if((e.deltaY<0&&aT)||(e.deltaY>0&&aB))e.preventDefault();}
-else{e.preventDefault();}
-return;
-}
+if(modalOpen){var sh=document.querySelector("#modal .sheet");var inSheet=e.target.closest&&e.target.closest("#modal .sheet");if(inSheet&&sh){var aT=sh.scrollTop<=0,aB=sh.scrollTop+sh.clientHeight>=sh.scrollHeight-1;if((e.deltaY<0&&aT)||(e.deltaY>0&&aB))e.preventDefault();}else{e.preventDefault();}return;}
 if(!opened){e.preventDefault();tryOpen();return;}
 if(MOB.matches)return;
 if(Date.now()<settleAt){e.preventDefault();e.stopPropagation();return;}
-var y=window.scrollY||0,ai=0;for(var i=0;i<cards.length;i++){if(cards[i].offsetTop<=y+2)ai=i;}var card=cards[ai];if(!card)return;var inner=card.querySelector(".iscroll");if(!inner)return;var d=e.deltaY;if(e.deltaMode===1)d*=16;e.preventDefault();e.stopPropagation();var top=card.offsetTop,inTransition=y>top+1,atTop=inner.scrollTop<=0,atBottom=inner.scrollTop+inner.clientHeight>=inner.scrollHeight-1;
-var isLast=(ai===cards.length-1);
+var y=window.scrollY||0,ai=0;for(var i=0;i<cards.length;i++){if(cards[i].offsetTop<=y+2)ai=i;}var card=cards[ai];if(!card)return;var inner=card.querySelector(".iscroll");if(!inner)return;var d=e.deltaY;if(e.deltaMode===1)d*=16;e.preventDefault();e.stopPropagation();var top=card.offsetTop,inTransition=y>top+1,atTop=inner.scrollTop<=0,atBottom=inner.scrollTop+inner.clientHeight>=inner.scrollHeight-1;var isLast=(ai===cards.length-1);
 if(d>0){if(!inTransition&&!atBottom){inner.scrollTop=Math.min(inner.scrollHeight,inner.scrollTop+d);}else{if(isLast&&atBottom){return;}var n=cards[ai+1],ny=y+d;if(n&&y<n.offsetTop&&ny>=n.offsetTop)ny=n.offsetTop;window.scrollTo(0,Math.max(0,ny));}}else{if(inTransition){var ny2=y+d;if(ny2<top)ny2=top;window.scrollTo(0,Math.max(0,ny2));}else if(!atTop){inner.scrollTop=Math.max(0,inner.scrollTop+d);}else{var p=cards[ai-1],ny3=y+d;if(p&&ny3<p.offsetTop+1)ny3=p.offsetTop;window.scrollTo(0,Math.max(0,ny3));}}
 },{capture:true,passive:false});
 function runCount(el){var raw=el.getAttribute("data-count"),m=raw.match(/[\d.]+/);if(!m)return;if(!HAS_GSAP){el.innerHTML=raw;return;}var end=parseFloat(m[0]),pre=raw.slice(0,raw.indexOf(m[0])),suf=raw.slice(raw.indexOf(m[0])+m[0].length),o={v:0};gsap.to(o,{v:end,duration:1.2,ease:"power2.out",onUpdate:function(){el.innerHTML=pre+Math.round(o.v)+suf;}});}
@@ -482,41 +591,20 @@ function visible(){if(MOB.matches)return true;return (card.offsetTop-window.scro
 var rvs=[].slice.call(card.querySelectorAll(".rv")),badgeDone=false,badgeRow=card.querySelector(".badge-row");
 function check(){if(!visible()){rvs.forEach(function(el){if(el.dataset.done){delete el.dataset.done;el.style.opacity=0;el.style.transform="translateY(16px)";}});return;}var ir=inner.getBoundingClientRect();rvs.forEach(function(el){if(!el.dataset.done&&el.getBoundingClientRect().top<ir.bottom-40){el.dataset.done="1";reveal(el);}});if(badgeRow&&!badgeDone&&badgeRow.getBoundingClientRect().top<ir.bottom-60){badgeDone=true;if(HAS_GSAP){gsap.timeline().from(badgeRow.querySelector(".bpill"),{opacity:0,x:-16,duration:.5,ease:"power2.out"}).from(badgeRow.querySelector(".brocket"),{opacity:0,x:-28,duration:.5,ease:"power2.out"},"-=.2").from("#bpillFull",{rotationX:-90,opacity:0,duration:.7,ease:"back.out(2)"},"-=.2");}}}
 inner.addEventListener("scroll",check,{passive:true});addEventListener("scroll",function(){if(visible())check();},{passive:true});check();
-if(card.id==="mindset"){var pl=card.querySelector("#philLine");
-var lnodes=[].slice.call(pl.querySelectorAll(".lead-node"));
+if(card.id==="mindset"){var pl=card.querySelector("#philLine");var lnodes=[].slice.call(pl.querySelectorAll(".lead-node"));
 function setLineEnd(){var last=lnodes[lnodes.length-1];if(last){pl.style.setProperty("--end",Math.max(0,last.offsetHeight-13)+"px");}}
 setLineEnd();addEventListener("resize",setLineEnd);
-var ncs=[].slice.call(card.querySelectorAll(".nc"));
-var svgEl=ncs.length?ncs[0].ownerSVGElement:null;
-if(svgEl)svgEl.classList.add("vis-anim");
-var circState=false;
-function setCirc(on){if(on===circState)return;circState=on;ncs.forEach(function(c,i){if(on){c.style.transitionDelay=(i*110)+"ms";c.classList.add("nc-on");}else{c.style.transitionDelay="0ms";c.classList.remove("nc-on");}});}
+var ncs=[].slice.call(card.querySelectorAll(".nc"));var svgEl=ncs.length?ncs[0].ownerSVGElement:null;if(svgEl)svgEl.classList.add("vis-anim");
+var circState=false;function setCirc(on){if(on===circState)return;circState=on;ncs.forEach(function(c,i){if(on){c.style.transitionDelay=(i*110)+"ms";c.classList.add("nc-on");}else{c.style.transitionDelay="0ms";c.classList.remove("nc-on");}});}
 if("IntersectionObserver" in window&&svgEl){var circIO=new IntersectionObserver(function(es){es.forEach(function(en){setCirc(en.isIntersecting);});},{threshold:0.35});circIO.observe(svgEl);}else{setCirc(true);}
 var activatePhil=function(){if(pl.dataset.done)return;pl.dataset.done="1";pl.classList.add("on");lnodes.forEach(function(nd,i){setTimeout(function(){nd.classList.add("on");},250+i*280);});};
 if("IntersectionObserver" in window){var philIO=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)activatePhil();});},{threshold:0.25});if(pl)philIO.observe(pl);}else{activatePhil();}
 var lupd=function(){if(!pl)return;if(!visible()){pl.classList.remove("on");pl.dataset.done="";var pf=card.querySelector("#philFill");if(pf)pf.style.transform="scaleY(0)";lnodes.forEach(function(nd){nd.classList.remove("on");});}};
 inner.addEventListener("scroll",lupd,{passive:true});addEventListener("scroll",function(){if(visible())lupd();},{passive:true});lupd();}
 if(card.id==="vision"){var vl=card.querySelector("#vline"),vns=card.querySelectorAll(".vn"),vdone=false;
-var vupd=function(){if(!vl)return;
-if(!visible()){vl.style.strokeDashoffset=420;vdone=false;vns.forEach(function(nd){nd.classList.remove("on");});return;}
-if(!vdone){vdone=true;vl.style.strokeDashoffset=0;vns.forEach(function(nd,i){setTimeout(function(){nd.classList.add("on");},250+i*300);});}};
+var vupd=function(){if(!vl)return;if(!visible()){vl.style.strokeDashoffset=420;vdone=false;vns.forEach(function(nd){nd.classList.remove("on");});return;}if(!vdone){vdone=true;vl.style.strokeDashoffset=0;vns.forEach(function(nd,i){setTimeout(function(){nd.classList.add("on");},250+i*300);});}};
 inner.addEventListener("scroll",vupd,{passive:true});addEventListener("scroll",function(){if(visible())vupd();},{passive:true});vupd();}
 if(card.id==="stackbox"){var vis=card.querySelector("#stackVis")||document.getElementById("stackVis"),mk=document.getElementById("jmarker"),jf=document.getElementById("jfill"),stgs=[].slice.call(card.querySelectorAll(".jstage")),fr=[.05,.35,.65,.9];var upd=function(){if(!visible()||!vis||!mk||!jf)return;var a=Math.max(0,vis.offsetTop-inner.clientHeight*.85),b=Math.max(a+1,vis.offsetTop-inner.clientHeight*.3),p=clamp01((inner.scrollTop-a)/(b-a));if(MOB.matches){mk.style.left="26px";mk.style.top=(8+84*p)+"%";jf.style.transform="scaleY("+p+")";}else{mk.style.top="44px";mk.style.left=(8+84*p)+"%";jf.style.transform="scaleX("+p+")";}stgs.forEach(function(s,i){s.classList.toggle("on",p>=fr[i]);});};inner.addEventListener("scroll",upd,{passive:true});addEventListener("scroll",function(){if(visible())upd();},{passive:true});upd();}
-if(card.id==="closing"){var cvis=card.querySelector(".close-vis"),cpin=document.getElementById("closePin"),letter=document.getElementById("meLetter"),fo=document.getElementById("meFlapOpen"),fc=document.getElementById("meFlapClosed"),badge=document.getElementById("meBadge"),env=document.getElementById("miniEnv"),msg=document.getElementById("closeMsg"),chint=document.getElementById("closeHint"),tenv=document.getElementById("thanksEnv");var cupd=function(){if(!visible()||!cvis||!cpin||!letter||!fo||!fc||!badge||!env||!msg||!chint)return;var st=inner.scrollTop,max=Math.max(1,cvis.offsetHeight-cpin.offsetHeight);cpin.style.transform="translateY("+Math.min(st,max)+"px)";var q=clamp01(st/max);chint.classList.toggle("off",q>0.03);letter.style.transform="translateY("+(-22*(1-sstep(q/.15)))+"%)";
-var flapProgress=clamp01((q-.15)/.35);
-if(flapProgress<0.5){
-fo.style.transform="scaleY("+(1-flapProgress*2)+")";
-fo.style.opacity=(1-flapProgress*2);
-fc.style.transform="scaleY(0)";
-fc.style.opacity=0;
-}else{
-fo.style.transform="scaleY(0)";
-fo.style.opacity=0;
-var closedProgress=(flapProgress-0.5)*2;
-fc.style.transform="scaleY("+closedProgress+")";
-fc.style.opacity=closedProgress;
-}
-badge.style.opacity=(clamp01((q-.52)/.06)*(1-clamp01((q-.74)/.14)));badge.style.transform="translate(-50%,-50%) scale("+backOut((q-.52)/.14)+")";var e2=sstep((q-.70)/.22);env.style.opacity=(1-e2);env.style.transform="scale("+(1-.08*e2)+")";var mo=sstep((q-.80)/.20);msg.style.opacity=mo;if(tenv)tenv.style.opacity=(0.16*mo);};inner.addEventListener("scroll",cupd,{passive:true});addEventListener("scroll",function(){if(visible())cupd();},{passive:true});cupd();}
 }catch(err){}});
 var pen=$("#pen"),clip=$("#nameClip"),writeStopped=false,splashUnlocked=false;
 function hideSplash(){var sp=$("#splash");if(sp){sp.classList.add("hidden");sp.style.display="none";}var skip=$("#skipIntro");if(skip)skip.style.display="none";}
@@ -525,15 +613,14 @@ function finishWrite(){if(ready)return;ready=true;writeStopped=true;if(pen)pen.s
 function writeName(){var nameEl=$("#name"),envEl=$("#env");if(!nameEl||!envEl)return finishWrite();var r=nameEl.getBoundingClientRect(),env=envEl.getBoundingClientRect();var x0=r.left-env.left,x1=r.right-env.left,y=r.top-env.top+r.height*.72;if(RM)return finishWrite();if(pen)pen.style.opacity=1;var D=2200,t0=performance.now();(function fr(t){if(writeStopped)return;var p=Math.min(1,(t-t0)/D);p=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;var x=x0+(x1-x0)*p,yb=y+Math.sin(p*40)*5;if(clip)clip.style.clipPath="inset(-30% "+(100-p*100)+"% -30% 0)";if(pen){pen.style.left=x+"px";pen.style.top=yb+"px";pen.style.transform="rotate("+(Math.sin(p*40)*4)+"deg)";}if(p<1)requestAnimationFrame(fr);else finishWrite();})(t0);}
 function openEnvelope(){if(opened)return;opened=true;if(!ready)finishWrite();var eh=$("#envHint");if(eh)eh.style.display="none";
 if(!HAS_GSAP){unlockSite(true);return;}
-try{
- gsap.timeline({onComplete:function(){unlockSite(false);}})
- .to("#seal",{left:"10%",top:"12%",duration:.45,ease:"power2.inOut"})
- .to("#seal",{opacity:0,scale:.8,duration:.25})
- .to("#flap",{rotateX:178,duration:.8,ease:"power2.inOut"})
- .set("#flap",{zIndex:1},"-=.35").set("#letter",{zIndex:6},"-=.35")
- .to("#letter",{yPercent:-58,duration:.9,ease:"power3.inOut"},"-=.2")
- .to("#env",{scale:.94,autoAlpha:0,duration:.45},"+=.05")
- .to("#splash",{autoAlpha:0,duration:.45,ease:"power2.inOut"});
+try{gsap.timeline({onComplete:function(){unlockSite(false);}})
+.to("#seal",{left:"10%",top:"12%",duration:.45,ease:"power2.inOut"})
+.to("#seal",{opacity:0,scale:.8,duration:.25})
+.to("#flap",{rotateX:178,duration:.8,ease:"power2.inOut"})
+.set("#flap",{zIndex:1},"-=.35").set("#letter",{zIndex:6},"-=.35")
+.to("#letter",{yPercent:-58,duration:.9,ease:"power3.inOut"},"-=.2")
+.to("#env",{scale:.94,autoAlpha:0,duration:.45},"+=.05")
+.to("#splash",{autoAlpha:0,duration:.45,ease:"power2.inOut"});
 }catch(err){unlockSite(true);}
 setTimeout(function(){if(opened&&!splashUnlocked)unlockSite(true);},3500);
 }
@@ -558,11 +645,7 @@ function closeModal(){$("#modal").classList.remove("open");document.body.classLi
 $("#modal .sheet").addEventListener("click",function(e){e.stopPropagation();});
 $("#mclose").onclick=closeModal;
 $("#modal").onclick=closeModal;
-addEventListener("keydown",function(e){
-var mo=$("#modal").classList.contains("open");
-if(e.key==="Escape"){closeModal();return;}
-if(mo&&[" ","ArrowUp","ArrowDown","PageUp","PageDown","Home","End"].indexOf(e.key)>-1){var inSheet=e.target&&e.target.closest&&e.target.closest("#modal .sheet");if(!inSheet)e.preventDefault();}
-});
+addEventListener("keydown",function(e){var mo=$("#modal").classList.contains("open");if(e.key==="Escape"){closeModal();return;}if(mo&&[" ","ArrowUp","ArrowDown","PageUp","PageDown","Home","End"].indexOf(e.key)>-1){var inSheet=e.target&&e.target.closest&&e.target.closest("#modal .sheet");if(!inSheet)e.preventDefault();}});
 if(!RM&&matchMedia("(pointer:fine)").matches&&HAS_GSAP){
 var g=$("#glow"),mx=innerWidth/2,my=innerHeight/2,gx=mx,gy=my;
 addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;});
