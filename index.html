@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Mr. Pranava Raghava G — AI Product Portfolio</title>
 <meta name="description" content="The career letter of Pranava Raghava G — AI Product Manager & Product Owner."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +18,13 @@
 [data-theme="amber"]{--acc:#b45309;--acc2:#d97706;--tint:#f6eedf;--hb1:#d97706;--hb2:#ecd3ab}
 [data-theme="crimson"]{--acc:#b91c1c;--acc2:#ef4444;--tint:#f8eceb;--hb1:#dc2626;--hb2:#f2b3ac}
 [data-theme="violet"]{--acc:#6366f1;--acc2:#8b5cf6;--tint:#edeafc;--hb1:#7c3aed;--hb2:#a5b4fc}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-#root{min-height:100%}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}
+html,body{height:100%;font-size:16px;line-height:1.5}
+#root{min-height:100%;width:100%}
 html{scroll-behavior:auto}
 body.lock{overflow:hidden}
 body.modal-lock{overflow:hidden !important}
-body{font-family:var(--f-body);background:#0c1013;color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:var(--f-body);background:#0c1013;color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-width:100vw;overflow-x:hidden}
 ::selection{background:var(--acc);color:#fff}
 h1,h2,h3{font-family:var(--f-disp)}
 a{color:inherit;text-decoration:none}
@@ -233,14 +233,64 @@ footer{padding:44px 0;text-align:center;color:#8b93a1;font-family:var(--f-mono);
 .clines line{transition:stroke-dashoffset 1.2s ease .2s}
 .vpath-svg .vn{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 
-/* FIX: Prevent flickering on closing card */
 #closing .rv{
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
-@media print{.no-print{display:none!important}body *{visibility:hidden}#mbody,#mbody *{visibility:visible}#modal{display:block;background:#fff}#modal .sheet{box-shadow:none;max-height:none;overflow:visible;width:100%;padding:0;border-radius:0}#mbody{position:absolute;left:0;top:0;width:100%}}
+/* --- SCOPED RESUME PREVIEW STYLES --- */
+.resume-preview {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 9pt;
+    line-height: 1.2;
+    color: #000;
+    width: 100%;
+    max-width: 210mm;
+    margin: 0 auto;
+}
+.resume-preview * { box-sizing: border-box; }
+.resume-preview a { color: #1955b4; text-decoration: none; }
+.resume-preview a:hover { text-decoration: underline; }
+.resume-preview .header { text-align: center; border-bottom: 1pt solid #000; padding-bottom: 4pt; margin-bottom: 6pt; }
+.resume-preview .header h1 { font-size: 21pt; line-height: 24pt; font-weight: bold; margin-bottom: 1pt; }
+.resume-preview .header .title { font-size: 10.5pt; line-height: 12pt; font-style: italic; margin-bottom: 3pt; }
+.resume-preview .header .contact { font-size: 8.5pt; line-height: 10pt; }
+.resume-preview .header .contact span { margin: 0 8pt; }
+.resume-preview .section { margin-bottom: 8pt; }
+.resume-preview .section-title { font-size: 10.5pt; line-height: 12pt; font-weight: bold; text-transform: uppercase; border-bottom: 1pt solid #000; margin-bottom: 4pt; padding-bottom: 2pt; }
+.resume-preview .summary { font-size: 9pt; line-height: 1.4; text-align: justify; }
+.resume-preview .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }
+.resume-preview .impact-item { display: table; }
+.resume-preview .impact-number { font-weight: bold; display: table-cell; width: 0.45in; padding-right: 0.05in; vertical-align: top; }
+.resume-preview .impact-text { display: table-cell; vertical-align: top; }
+.resume-preview .skills-list { margin-bottom: 6pt; }
+.resume-preview .skill-item { display: table; width: 100%; margin-bottom: 2pt; }
+.resume-preview .skill-key { display: table-cell; width: 1.82in; font-weight: bold; text-align: right; padding-right: 0.10in; vertical-align: top; }
+.resume-preview .skill-value { display: table-cell; vertical-align: top; text-align: left; }
+.resume-preview .company-header { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10pt; }
+.resume-preview .company-name { font-size: 9pt; line-height: 10pt; font-weight: bold; }
+.resume-preview .company-date { font-size: 8pt; line-height: 9pt; }
+.resume-preview .job-title { font-size: 8.5pt; line-height: 9.5pt; font-style: italic; margin-top: 2pt; margin-bottom: 4pt; }
+.resume-preview .job-description { font-size: 9pt; line-height: 1.3; margin-bottom: 4pt; }
+.resume-preview .experience-list { margin-left: 0; }
+.resume-preview .experience-item { display: table; width: 100%; margin-bottom: 3pt; }
+.resume-preview .exp-key { display: table-cell; width: 1.82in; font-weight: bold; text-align: right; padding-right: 0.10in; vertical-align: top; }
+.resume-preview .exp-value { display: table-cell; vertical-align: top; text-align: left; font-size: 9pt; line-height: 1.3; }
+.resume-preview .education-item { margin-top: 6pt; }
+.resume-preview .school-header { display: flex; justify-content: space-between; align-items: baseline; }
+.resume-preview .school-name { font-size: 9pt; line-height: 10pt; font-weight: bold; }
+.resume-preview .school-year { font-size: 8pt; line-height: 9pt; }
+.resume-preview .degree { font-size: 8.5pt; line-height: 9.5pt; font-style: italic; margin-top: 2pt; }
+
+@media print{
+    .no-print{display:none!important}
+    body *{visibility:hidden}
+    #mbody, #mbody *{visibility:visible}
+    #modal{display:block;background:#fff;position:fixed;inset:0;z-index:9999}
+    #modal .sheet{box-shadow:none;max-height:none;overflow:visible;width:100%;padding:0.38in 0.60in;border-radius:0}
+    #mbody{position:absolute;left:0;top:0;width:100%}
+}
 @media(max-width:768px){body{overflow:hidden}#root{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;touch-action:pan-x pan-y}#root::-webkit-scrollbar{display:none}.cardsec{flex:0 0 100%;margin:0;border-radius:0;height:100%;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:none}.sec{padding:56px 0 96px}.hero-grid{grid-template-columns:1fr;gap:18px;padding:16px 0}.cover-name{font-size:clamp(1.4rem,7vw,2.2rem)}.env{width:min(92vw,420px)}.pen{width:84px;height:140px;margin-left:-42px;margin-top:-118px}.jcard{padding:30px 18px}.jtrack{height:400px}.jline{left:26px;right:auto;top:12px;bottom:12px;width:2px;height:auto}.jfill{left:26px;right:auto;top:12px;width:2px;height:calc(100% - 24px);transform:scaleY(0);transform-origin:50% 0}.jstage{left:0;right:0;top:var(--x);transform:none;display:flex;align-items:center;gap:14px;text-align:left}.jdot{margin:0;flex:none}.jlbl{margin:0;white-space:normal}.jmarker{left:26px;top:12px}.mini-env{width:min(86vw,420px)}.vision-grid,.mind-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -358,209 +408,216 @@ storyHTML("zetaa")+storyHTML("stackbox")+storyHTML("shopester")+
 
 function toast(msg){var t=$("#rtoast");if(!t)return;t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show","warn");},2600);}
 function toastWarn(msg){var t=$("#rtoast");if(!t)return;t.textContent=msg;t.classList.add("show","warn");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show","warn");},2600);}
-function buildPDF(){
-  if(!(window.jspdf&&window.jspdf.jsPDF)){toast("PDF ENGINE NOT AVAILABLE");return;}
-  var J=window.jspdf.jsPDF, doc=new J({unit:"pt",format:"a4",orientation:"portrait"}), W=doc.internal.pageSize.getWidth(), M=40, y=40, cW=W-2*M;
-  
-  function normal(s){doc.setFont("helvetica","normal");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-  function bold(s){doc.setFont("helvetica","bold");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-  function italic(s){doc.setFont("helvetica","italic");doc.setFontSize(s);doc.setTextColor(0,0,0);}
-  function rule(){doc.setDrawColor(0,0,0);doc.setLineWidth(0.5);doc.line(M,y,W-M,y);}
-  function section(t){y+=12;bold(11);doc.text(t.toUpperCase(),M,y);y+=4;rule();y+=10;}
-  function textBlock(t,size,lh){normal(size);var l=doc.splitTextToSize(t,cW);doc.text(l,M,y);y+=l.length*lh+6;}
-  function bullet(t){normal(9.5);var l=doc.splitTextToSize(t,cW-14);doc.text("-",M,y);doc.text(l,M+10,y);y+=l.length*12+3;}
-  function roleHeader(co,role,when){bold(11);doc.text(co,M,y);normal(9);doc.text(when,W-M,y,{align:"right"});y+=11;italic(9.5);doc.text(role,M,y);y+=12;}
-  function bulletProject(name, url, desc) {
-      normal(9.5);
-      doc.text("-", M, y);
-      doc.setTextColor(37, 99, 235);
-      doc.textWithLink(name, M + 10, y, {url: url});
-      doc.setTextColor(0, 0, 0);
-      
-      var nameW = doc.getTextWidth(name + " ");
-      var descLines = doc.splitTextToSize(desc, cW - M - 10 - nameW);
-      
-      if (descLines.length === 1 && (nameW + doc.getTextWidth(descLines[0]) < cW - M - 10)) {
-          doc.text(descLines[0], M + 10 + nameW, y);
-          y += 12;
-      } else {
-          doc.text(descLines[0], M + 10 + nameW, y);
-          if (descLines.length > 1) {
-              doc.text(descLines.slice(1), M + 10, y + 12);
-              y += 12 * descLines.length;
-          } else {
-              y += 12;
-          }
-      }
-  }
-  
-  bold(22);doc.text("PRANAVA RAGHAVA G",W/2,y,{align:"center"});y+=16;
-  italic(11);doc.text("Product Manager | AI & 0 to 1 Products",W/2,y,{align:"center"});y+=14;
-  normal(9);
-  
-  var contacts = [
-      {label: "raghavagodugunuri@gmail.com", url: "mailto:raghavagodugunuri@gmail.com"},
-      {label: "+91 8428638871", url: "tel:+918428638871"},
-      {label: "linkedin.com/in/pranava-raghava", url: "https://www.linkedin.com/in/pranava-raghava/"},
-      {label: "Portfolio", url: "https://pranava-raghava-g.github.io/pr-s-portfolio/"}
-  ];
-  var totalWidth = 0;
-  contacts.forEach(function(c, i) {
-      totalWidth += doc.getTextWidth(c.label);
-      if (i < contacts.length - 1) totalWidth += doc.getTextWidth("  |  ");
-  });
-  var cx = (W - totalWidth) / 2;
-  contacts.forEach(function(c, i) {
-      doc.setTextColor(37,99,235);
-      doc.textWithLink(c.label, cx, y, {url: c.url});
-      cx += doc.getTextWidth(c.label);
-      doc.setTextColor(0,0,0);
-      if (i < contacts.length - 1) {
-          doc.text("  |  ", cx, y);
-          cx += doc.getTextWidth("  |  ");
-      }
-  });
-  y+=12;rule();y+=12;
-  
-  section("Summary");
-  var summary="Product Manager with 4+ years of experience shipping supply chain systems, internal ERPs, and AI workflows. Spent 3+ years at Stackbox scaling complex warehouse tools and currently building 0 to 1 AI tools at Zetaacraft. Pairs data analytics with hands-on technical execution to ship software that solves real operational headaches.";
-  normal(9.5);
-  var summaryLines=doc.splitTextToSize(summary,cW);
-  doc.text(summaryLines,M,y);
-  y+=summaryLines.length*13+6;
-  
-  section("Key Impact");
-  textBlock("4+ Products Shipped  |  25+ Features Delivered  |  ~15% System Speedup  |  30-40% QA Efficiency Improvement",9.5,13);
-  
-  section("Core Skills");
-  var skills=[
-    {label:"Product Management",text:"Discovery, PRDs, User Flows, Roadmaps, Backlog Prioritization, Sprint Planning, Stakeholder Alignment, QA & Releases"},
-    {label:"AI & Technical",text:"LLM Workflows, RAG, AI Agents, Prompt Engineering, Model Evaluation, Local LLMs, MCP, API Integration, Prototyping"},
-    {label:"Analytics",text:"SQL, KPI Dashboards, Market Basket Analysis, Data Storytelling"}
-  ];
-  var labelX=M;
-  var contentX=M+100;
-  var contentWidth=cW-100;
-  skills.forEach(function(s){
-    bold(9.5);
-    doc.text(s.label+":",labelX,y);
-    normal(9.5);
-    var l=doc.splitTextToSize(s.text,contentWidth);
-    doc.text(l,contentX,y);
-    y+=l.length*12+4;
-  });
-  y+=4;
-  
-  section("Experience");
-  
-  roleHeader("ZETAACRAFT","AI Product Manager","Jun 2026 - Present");
-  var zetaDesc="Drive end-to-end product delivery for 0 to 1 web applications, ERP tools, and LLM-powered workflows.";
-  var zetaLines=doc.splitTextToSize(zetaDesc,cW);
-  normal(9.5);
-  doc.text(zetaLines,M,y);
-  y+=zetaLines.length*13+6;
-  
-  bulletProject("Taskya", "https://taskya-amber.vercel.app/", "Built an AI workspace converting meeting notes into structured action items, cutting post-meeting admin work by ~40%.");
-  bulletProject("Zetaacraft.com", "https://zetaacraft.com/", "Designed and built the company's flagship website, owning the end-to-end experience across service discovery, navigation, and enquiry flows.");
-  bulletProject("Srisarojini ERP", "https://srisarojini.com/", "Designed a modular ERP centralizing operational master data, eliminating manual spreadsheet reconciliation.");
-  y+=6;
-  
-  roleHeader("STACKBOX","Product Analyst - Associate Product Manager","Feb 2023 - May 2026");
-  var stackDesc="Promoted to APM to lead product execution across Warehouse (WMS) and Yard (YMS) systems with ops, engineering, and business teams.";
-  var stackLines=doc.splitTextToSize(stackDesc,cW);
-  normal(9.5);
-  doc.text(stackLines,M,y);
-  y+=stackLines.length*13+6;
-  
-  bullet("0 to 1 Independent YMS: Defined requirements, UI flows, and logic to decouple YMS from WMS, opening up new standalone client deployments.");
-  bullet("Weight-Based Receiving: Led product definition and launch of weight-based inbound workflows, replacing unit-count checks.");
-  bullet("Automated Image Validation: Introduced automated image verification and supervisor escalation rules to catch errors before order completion.");
-  bullet("System Performance: Improved overall product speed by ~15% through workflow cleanup and targeted event tracking.");
-  bullet("QA Efficiency: Boosted testing turnaround by 30-40% by rebuilding test plans and streamlining how bugs are sorted and fixed.");
-  bullet("Release Execution: Managed sprint backlogs, UAT, and release schedules across multiple modules for a steady delivery cadence.");
-  y+=6;
-  
-  roleHeader("SHOPESTER","Data Analyst Intern - Data Analyst","Feb 2021 - May 2022");
-  bullet("Initial analytics hire setting up basic reporting infrastructure, recurring dashboards, and performance tracking.");
-  bullet("Ran Market Basket Analysis on purchase patterns and churn, refining loyalty program tiers and supporting a 15-20% sales increase.");
-  y+=6;
-  
-  section("Education");
-  bold(11);doc.text("SASTRA Deemed University",M,y);normal(9);doc.text("2021",W-M,y,{align:"right"});y+=11;
-  italic(9.5);doc.text("Bachelor's Degree in Computer Science",M,y);
-  
-  doc.save("Pranava_Raghava_G_Resume.pdf");toast("RESUME PDF DOWNLOADED");
-}
 
 function resumePremiumHTML(){
-  var h = '<div style="max-width:780px;margin:0 auto;color:#000;background:#fff;font-family:Helvetica,Arial,sans-serif;line-height:1.6;padding:40px 38px;border:1px solid #000">';
-  h += '<div style="text-align:center;margin-bottom:20px;">';
-  h += '<div style="font-size:28px;font-weight:700;letter-spacing:1px;color:#000">PRANAVA RAGHAVA G</div>';
-  h += '<div style="font-size:14px;font-weight:600;margin-top:4px;color:#333">Product Manager | AI & 0 to 1 Products</div>';
-  h += '<div style="font-size:11px;margin-top:8px;color:#000;text-align:center">';
-  h += '<a href="mailto:raghavagodugunuri@gmail.com" style="color:#2563eb;text-decoration:none">raghavagodugunuri@gmail.com</a> &nbsp;|&nbsp; ';
-  h += '<a href="tel:+918428638871" style="color:#2563eb;text-decoration:none">+91 8428638871</a> &nbsp;|&nbsp; ';
-  h += '<a href="https://www.linkedin.com/in/pranava-raghava/" style="color:#2563eb;text-decoration:none" target="_blank">linkedin.com/in/pranava-raghava</a> &nbsp;|&nbsp; ';
-  h += '<a href="https://pranava-raghava-g.github.io/pr-s-portfolio/" style="color:#2563eb;text-decoration:none" target="_blank">Portfolio</a>';
-  h += '</div></div>';
-  
-  h += '<div style="height:1px;background:#000;margin:20px 0"></div>';
-  
-  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">SUMMARY</div>';
-  h += '<p style="font-size:11px;line-height:1.7;color:#000;margin:0 0 15px 0">Product Manager with 4+ years of experience shipping supply chain systems, internal ERPs, and AI workflows. Spent 3+ years at Stackbox scaling complex warehouse tools and currently building 0 to 1 AI tools at Zetaacraft. Pairs data analytics with hands-on technical execution to ship software that solves real operational headaches.</p>';
-  
-  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">KEY IMPACT</div>';
-  h += '<p style="font-size:11px;line-height:1.7;color:#000;margin:0 0 15px 0">4+ Products Shipped &nbsp;|&nbsp; 25+ Features Delivered &nbsp;|&nbsp; ~15% System Speedup &nbsp;|&nbsp; 30-40% QA Efficiency Improvement</p>';
+  return `
+  <div class="resume-preview">
+    <div class="header">
+        <h1>PRANAVA RAGHAVA G</h1>
+        <div class="title">Product Manager | AI & 0 to 1 Products</div>
+        <div class="contact">
+            <a href="mailto:raghavagodugunuri@gmail.com">raghavagodugunuri@gmail.com</a>
+            <span>|</span>
+            <span>+91 8428638871</span>
+            <span>|</span>
+            <a href="https://linkedin.com/in/pranava-raghava">linkedin.com/in/pranava-raghava</a>
+            <span>|</span>
+            <a href="https://pranava-raghava-g.github.io/pr-s-portfolio/">Portfolio</a>
+        </div>
+    </div>
 
-  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">CORE SKILLS</div>';
-  h += '<div style="display:flex;margin-bottom:6px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">Product Management:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">Discovery, PRDs, User Flows, Roadmaps, Backlog Prioritization, Sprint Planning, Stakeholder Alignment, QA & Releases</div></div>';
-  h += '<div style="display:flex;margin-bottom:6px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">AI & Technical:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">LLM Workflows, RAG, AI Agents, Prompt Engineering, Model Evaluation, Local LLMs, MCP, API Integration, Prototyping</div></div>';
-  h += '<div style="display:flex;margin-bottom:15px"><div style="width:100px;font-size:11px;font-weight:700;color:#000">Analytics:</div><div style="flex:1;font-size:11px;line-height:1.7;color:#000">SQL, KPI Dashboards, Market Basket Analysis, Data Storytelling</div></div>';
+    <div class="section">
+        <div class="section-title">SUMMARY</div>
+        <div class="summary">
+            Product Manager with 4+ years of experience shipping supply chain systems, internal ERPs, and AI workflows. Spent 3+ years at Stackbox scaling complex warehouse tools and currently building 0 to 1 AI tools at Zetaacraft. Pairs data analytics with hands-on technical execution to ship software that solves real operational headaches.
+        </div>
+    </div>
 
-  h += '<div style="margin:20px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">EXPERIENCE</div>';
-  
-  h += '<div style="margin-top:15px">';
-  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">ZETAACRAFT</div><div style="font-size:11px;color:#000">Jun 2026 - Present</div></div>';
-  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">AI Product Manager</div>';
-  h += '<p style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 0">Drive end-to-end product delivery for 0 to 1 web applications, ERP tools, and LLM-powered workflows.</p>';
-  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
-  h += '<li style="margin-bottom:4px"><strong><a href="https://taskya-amber.vercel.app/" target="_blank" style="color:#2563eb;text-decoration:underline">Taskya</a>:</strong> Built an AI workspace converting meeting notes into structured action items, cutting post-meeting admin work by ~40%.</li>';
-  h += '<li style="margin-bottom:4px"><strong><a href="https://zetaacraft.com/" target="_blank" style="color:#2563eb;text-decoration:underline">Zetaacraft.com</a>:</strong> Designed and built the company\'s flagship website, owning the end-to-end experience across service discovery, navigation, and enquiry flows.</li>';
-  h += '<li style="margin-bottom:4px"><strong><a href="https://srisarojini.com/" target="_blank" style="color:#2563eb;text-decoration:underline">Srisarojini ERP</a>:</strong> Designed a modular ERP centralizing operational master data, eliminating manual spreadsheet reconciliation.</li>';
-  h += '</ul></div>';
+    <div class="section">
+        <div class="section-title">KEY IMPACT</div>
+        <div class="impact-grid">
+            <div class="impact-item">
+                <span class="impact-number">4+</span>
+                <span class="impact-text">Products Shipped</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-number">25+</span>
+                <span class="impact-text">Features Delivered</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-number">~15%</span>
+                <span class="impact-text">System Speedup</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-number">30–40%</span>
+                <span class="impact-text">QA Efficiency Improvement</span>
+            </div>
+        </div>
+    </div>
 
-  h += '<div style="margin-top:18px">';
-  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">STACKBOX</div><div style="font-size:11px;color:#000">Feb 2023 - May 2026</div></div>';
-  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Product Analyst - Associate Product Manager</div>';
-  h += '<p style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 0">Promoted to APM to lead product execution across Warehouse (WMS) and Yard (YMS) systems with ops, engineering, and business teams.</p>';
-  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
-  h += '<li style="margin-bottom:4px"><strong>0 to 1 Independent YMS:</strong> Defined requirements, UI flows, and logic to decouple YMS from WMS, opening up new standalone client deployments.</li>';
-  h += '<li style="margin-bottom:4px"><strong>Weight-Based Receiving:</strong> Led product definition and launch of weight-based inbound workflows, replacing unit-count checks.</li>';
-  h += '<li style="margin-bottom:4px"><strong>Automated Image Validation:</strong> Introduced automated image verification and supervisor escalation rules to catch errors before order completion.</li>';
-  h += '<li style="margin-bottom:4px"><strong>System Performance:</strong> Improved overall product speed by ~15% through workflow cleanup and targeted event tracking.</li>';
-  h += '<li style="margin-bottom:4px"><strong>QA Efficiency:</strong> Boosted testing turnaround by 30-40% by rebuilding test plans and streamlining how bugs are sorted and fixed.</li>';
-  h += '<li style="margin-bottom:4px"><strong>Release Execution:</strong> Managed sprint backlogs, UAT, and release schedules across multiple modules for a steady delivery cadence.</li>';
-  h += '</ul></div>';
+    <div class="section">
+        <div class="section-title">CORE SKILLS</div>
+        <div class="skills-list">
+            <div class="skill-item">
+                <div class="skill-key">Product Management:</div>
+                <div class="skill-value">Discovery, PRDs, User Flows, Roadmaps, Backlog Prioritization, Sprint Planning, Stakeholder Alignment, QA & Releases</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-key">AI & Technical:</div>
+                <div class="skill-value">LLM Workflows, RAG, AI Agents, Prompt Engineering, Model Evaluation, Local LLMs, MCP, API Integration, Prototyping</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-key">Analytics:</div>
+                <div class="skill-value">SQL, KPI Dashboards, Market Basket Analysis, Data Storytelling</div>
+            </div>
+        </div>
+    </div>
 
-  h += '<div style="margin-top:18px">';
-  h += '<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13px;font-weight:700;color:#000">SHOPESTER</div><div style="font-size:11px;color:#000">Feb 2021 - May 2022</div></div>';
-  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Data Analyst Intern - Data Analyst</div>';
-  h += '<ul style="font-size:11px;line-height:1.6;color:#000;margin:8px 0 0 16px;padding:0">';
-  h += '<li style="margin-bottom:4px">Initial analytics hire setting up basic reporting infrastructure, recurring dashboards, and performance tracking.</li>';
-  h += '<li style="margin-bottom:4px">Ran Market Basket Analysis on purchase patterns and churn, refining loyalty program tiers and supporting a 15-20% sales increase.</li>';
-  h += '</ul></div>';
+    <div class="section">
+        <div class="section-title">EXPERIENCE</div>
+        
+        <div class="company-header">
+            <div class="company-name">ZETAACRAFT</div>
+            <div class="company-date">Jun 2026 – Present</div>
+        </div>
+        <div class="job-title">AI Product Manager</div>
+        <div class="job-description">Drive end-to-end product delivery for 0 to 1 web applications, ERP tools, and LLM-powered workflows.</div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="exp-key"><a href="https://taskya-amber.vercel.app/">Taskya:</a></div>
+                <div class="exp-value">Built an AI workspace converting meeting notes into structured action items, cutting post-meeting admin work by ~40%.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key"><a href="https://zetaacraft.com/">Zetaacraft:</a></div>
+                <div class="exp-value">Designed and built the company's flagship website, owning the end-to-end experience across service discovery, navigation, and enquiry flows.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key"><a href="https://srisarojini.com/">Sarojini:</a></div>
+                <div class="exp-value">Designed a modular ERP centralizing operational master data, eliminating manual spreadsheet reconciliation.</div>
+            </div>
+        </div>
 
-  h += '<div style="margin:25px 0 10px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;border-bottom:1px solid #000;padding-bottom:4px">EDUCATION</div>';
-  h += '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:10px"><div style="font-size:12px;font-weight:700;color:#000">SASTRA Deemed University</div><div style="font-size:11px;color:#000">2021</div></div>';
-  h += '<div style="font-size:11px;font-style:italic;color:#000;margin-top:2px">Bachelor\'s Degree in Computer Science</div>';
+        <div class="company-header" style="margin-top: 12pt;">
+            <div class="company-name">STACKBOX</div>
+            <div class="company-date">Feb 2023 – May 2026</div>
+        </div>
+        <div class="job-title">Product Analyst - Assistant Product Manager</div>
+        <div class="job-description">Promoted to APM to lead product execution across Warehouse (WMS) and Yard (YMS) systems with ops, engineering, and business teams.</div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="exp-key">0 to 1 Independent YMS:</div>
+                <div class="exp-value">Defined requirements, UI flows, and logic to decouple YMS from WMS, opening up new standalone client deployments.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">Weight-Based Receiving:</div>
+                <div class="exp-value">Led product definition and launch of weight-based inbound workflows, replacing unit-count checks.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">Automated Image Validation:</div>
+                <div class="exp-value">Introduced automated image verification and supervisor escalation rules to catch errors before order completion.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">System Performance:</div>
+                <div class="exp-value">Improved overall product speed by ~15% through workflow cleanup and targeted event tracking.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">QA Efficiency:</div>
+                <div class="exp-value">Boosted testing turnaround by 30–40% by rebuilding test plans and streamlining how bugs are sorted and fixed.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">Release Execution:</div>
+                <div class="exp-value">Managed sprint backlogs, UAT, and release schedules across multiple modules for a steady delivery cadence.</div>
+            </div>
+        </div>
 
-  h += '</div>';
-  return h;
+        <div class="company-header" style="margin-top: 12pt;">
+            <div class="company-name">SHOPSTER</div>
+            <div class="company-date">Feb 2021 – May 2022</div>
+        </div>
+        <div class="job-title">Data Analyst Intern - Data Analyst</div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="exp-key">Analytics Setup:</div>
+                <div class="exp-value">Initial analytics hire setting up basic reporting infrastructure, recurring dashboards, and performance tracking.</div>
+            </div>
+            <div class="experience-item">
+                <div class="exp-key">Market Basket Analysis:</div>
+                <div class="exp-value">Ran Market Basket Analysis on purchase patterns and churn, refining loyalty program tiers and supporting a 15–20% sales increase.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">EDUCATION</div>
+        <div class="education-item">
+            <div class="school-header">
+                <div class="school-name">SASTRA Deemed University</div>
+                <div class="school-year">2021</div>
+            </div>
+            <div class="degree">Bachelor's Degree in Computer Science</div>
+        </div>
+    </div>
+  </div>`;
 }
 
-function downloadHTMLResume(){var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>Pranava Raghava G - Resume</title></head><body style="margin:32px;background:#fff">'+resumePremiumHTML()+'</body></html>';var blob=new Blob([html],{type:"text/html"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="Pranava_Raghava_G_Resume.html";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},2000);}
-function openResumeModal(){$("#mbody").innerHTML=resumePremiumHTML()+'<div class="crow no-print" style="justify-content:center;margin-top:26px;gap:12px"><button class="btn pri" onclick="window.print()">PRINT / SAVE AS PDF</button><button class="btn ghost" onclick="buildPDF()">DOWNLOAD PDF</button></div>';$("#modal").classList.add("open");document.body.classList.add("modal-lock");}
-function downloadResume(){toast("PREPARING RESUME...");if(window.jspdf&&window.jspdf.jsPDF){try{buildPDF();return;}catch(e){}}try{downloadHTMLResume();toast("RESUME FILE DOWNLOADED");return;}catch(e){}openResumeModal();toast("USE PRINT / SAVE AS PDF");}
+function printResume() {
+    var printWindow = window.open('', '_blank');
+    var htmlContent = '<!DOCTYPE html><html><head><title>Pranava Raghava G - Resume</title>' + 
+        '<style>' + 
+        '@page { size: A4; margin: 0.38in 0.60in; }' +
+        '* { margin: 0; padding: 0; box-sizing: border-box; }' +
+        'body { font-family: Georgia, "Times New Roman", serif; font-size: 9pt; line-height: 1.2; color: #000; width: 210mm; min-height: 297mm; padding: 0.38in 0.60in; margin: 0 auto; }' +
+        'a { color: #1955b4; text-decoration: none; }' +
+        'a:hover { text-decoration: underline; }' +
+        '.header { text-align: center; border-bottom: 1pt solid #000; padding-bottom: 4pt; margin-bottom: 6pt; }' +
+        '.header h1 { font-size: 21pt; line-height: 24pt; font-weight: bold; margin-bottom: 1pt; }' +
+        '.header .title { font-size: 10.5pt; line-height: 12pt; font-style: italic; margin-bottom: 3pt; }' +
+        '.header .contact { font-size: 8.5pt; line-height: 10pt; }' +
+        '.header .contact span { margin: 0 8pt; }' +
+        '.section { margin-bottom: 8pt; }' +
+        '.section-title { font-size: 10.5pt; line-height: 12pt; font-weight: bold; text-transform: uppercase; border-bottom: 1pt solid #000; margin-bottom: 4pt; padding-bottom: 2pt; }' +
+        '.summary { font-size: 9pt; line-height: 1.4; text-align: justify; }' +
+        '.impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }' +
+        '.impact-item { display: table; }' +
+        '.impact-number { font-weight: bold; display: table-cell; width: 0.45in; padding-right: 0.05in; vertical-align: top; }' +
+        '.impact-text { display: table-cell; vertical-align: top; }' +
+        '.skills-list { margin-bottom: 6pt; }' +
+        '.skill-item { display: table; width: 100%; margin-bottom: 2pt; }' +
+        '.skill-key { display: table-cell; width: 1.82in; font-weight: bold; text-align: right; padding-right: 0.10in; vertical-align: top; }' +
+        '.skill-value { display: table-cell; vertical-align: top; text-align: left; }' +
+        '.company-header { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10pt; }' +
+        '.company-name { font-size: 9pt; line-height: 10pt; font-weight: bold; }' +
+        '.company-date { font-size: 8pt; line-height: 9pt; }' +
+        '.job-title { font-size: 8.5pt; line-height: 9.5pt; font-style: italic; margin-top: 2pt; margin-bottom: 4pt; }' +
+        '.job-description { font-size: 9pt; line-height: 1.3; margin-bottom: 4pt; }' +
+        '.experience-list { margin-left: 0; }' +
+        '.experience-item { display: table; width: 100%; margin-bottom: 3pt; }' +
+        '.exp-key { display: table-cell; width: 1.82in; font-weight: bold; text-align: right; padding-right: 0.10in; vertical-align: top; }' +
+        '.exp-value { display: table-cell; vertical-align: top; text-align: left; font-size: 9pt; line-height: 1.3; }' +
+        '.education-item { margin-top: 6pt; }' +
+        '.school-header { display: flex; justify-content: space-between; align-items: baseline; }' +
+        '.school-name { font-size: 9pt; line-height: 10pt; font-weight: bold; }' +
+        '.school-year { font-size: 8pt; line-height: 9pt; }' +
+        '.degree { font-size: 8.5pt; line-height: 9.5pt; font-style: italic; margin-top: 2pt; }' +
+        '</style></head><body>' + 
+        resumePremiumHTML() + 
+        '<script>setTimeout(function(){ window.print(); window.close(); }, 500);<\/script>' +
+        '</body></html>';
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+}
+
+function openResumeModal(){
+  $("#mbody").innerHTML=resumePremiumHTML()+'<div class="crow no-print" style="justify-content:center;margin-top:26px;gap:12px"><button class="btn pri" onclick="printResume()">PRINT / SAVE AS PDF</button></div>';
+  $("#modal").classList.add("open");
+  document.body.classList.add("modal-lock");
+}
+
+function downloadResume(){
+  toast("PREPARING RESUME...");
+  printResume();
+}
+
 document.addEventListener("click",function(e){var b=e.target.closest(".resume-dl");if(!b)return;e.preventDefault();e.stopPropagation();downloadResume();},true);
 var cards=[].slice.call(document.querySelectorAll(".cardsec"));
 cards.forEach(function(c,i){c.style.zIndex=String(i+1);});
